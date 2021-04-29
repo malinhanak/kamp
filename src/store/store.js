@@ -4,7 +4,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { rootReducer } from './reducer';
 import { routerMiddleware } from 'connected-react-router';
 import { createFirestoreInstance } from 'redux-firestore';
-import { firebase as fbConfig, reduxFirebase } from 'config/client';
+import fbConfig, { reduxFirebase } from 'config/client';
 
 export const history = createBrowserHistory();
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

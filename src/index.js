@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import App from './components/App';
-import Providers from './components/Providers';
+import App from 'components/App';
+import Providers from 'components/Providers';
 import reportWebVitals from './reportWebVitals';
+// import firebase from 'firebase/app';
+// import { firebase as fbConfig } from 'config/client';
+import 'firebase/firestore';
+
+// firebase.initializeApp(fbConfig);
+// firebase.firestore();
 
 ReactDOM.render(
 	<React.StrictMode>

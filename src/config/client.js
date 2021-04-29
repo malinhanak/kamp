@@ -1,3 +1,6 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
 const config = {
 	firebase: {
 		apiKey: 'AIzaSyCUJbEkDpGmk7Z1IcdJNGTJKZJk4SPm-eo',
@@ -17,4 +20,8 @@ const config = {
 	},
 };
 
-export const { firebase, reduxFirebase } = config;
+firebase.initializeApp(config.firebase);
+firebase.firestore();
+
+export const { reduxFirebase } = config;
+export default firebase;
