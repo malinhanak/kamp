@@ -7,10 +7,8 @@ function App() {
 	const firebase = useFirebase();
 	const history = useHistory();
 
-	const authFb = firebase.auth();
-
 	function signOut() {
-		authFb.signOut().then(() => history.push('/'));
+		firebase.logout().then(() => history.push('/'));
 	}
 	return (
 		<div>

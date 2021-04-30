@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useFirebase, isLoaded, isEmpty } from 'react-redux-firebase';
+import { useFirebase, isLoaded } from 'react-redux-firebase';
 import { useHistory } from 'react-router-dom';
 
 function LoginPage() {
@@ -7,29 +7,15 @@ function LoginPage() {
 	const history = useHistory();
 	const auth = useSelector((state) => state.firebase.auth);
 
-	const authFb = firebase.auth();
-	const googleProvider = new firebase.auth.GoogleAuthProvider();
-
 	function loginWithGoogle() {
-		// authFb
-		//   .signInWithPopup(googleProvider)
-		//   .then((res) => {
-		//     console.log(res.user);
-		//   })
-		//   .catch((error) => {
-		//     console.log(error.message);
-		//   });
 		firebase.login({ provider: 'google', type: 'popup' }).then(() => {
 			history.push('/games');
 		});
 	}
 
 	function signOut() {
-		authFb.signOut().then(() => history.push('/'));
+		firebase.logout().then(() => history.push('/'));
 	}
-
-	console.log('auth', auth);
-	console.log(firebase);
 
 	return (
 		<div>
