@@ -5,7 +5,6 @@
 /.pnp
 .pnp.js
 /.vscode
-/src/components/__tests__/Games.test.js
 
 # testing
 /coverage

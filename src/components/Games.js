@@ -2,9 +2,8 @@ import { useFirebase, useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { auth as authSelector } from 'store/selectors/auth';
-import { store } from 'store/store';
 
-const Games = () => {
+function Games() {
 	const auth = useSelector(authSelector);
 	const history = useHistory();
 	const firebase = useFirebase();
@@ -20,8 +19,6 @@ const Games = () => {
 	]);
 
 	const games = useSelector((state) => state.firestore.ordered.games);
-	console.log(store.getState());
-	console.log('games: ', games);
 
 	function signOut() {
 		firebase.logout().then(() => history.push('/'));
@@ -42,5 +39,5 @@ const Games = () => {
 			})}
 		</>
 	);
-};
+}
 export default Games;

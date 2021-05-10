@@ -1,16 +1,15 @@
-import App from 'components/App';
+import LoginPage from 'components/Login';
 import { render, screen, waitFor, cleanup } from 'config/test-utils';
 import { initialState } from 'store/reducer';
-import { store } from 'store/store';
 
-describe('Should test the App Component', () => {
+describe('Should test the LoginPage Component', () => {
 	afterEach(() => {
 		cleanup();
 	});
 
 	test('renders learn react link', async () => {
-		render(<App />, { initialState: initialState, store });
-		const linkElement = await screen.findByText(/Loading/i);
+		render(<LoginPage />, { initialState: initialState });
+		const linkElement = await screen.findByText(/Auth/i);
 		await waitFor(() => expect(linkElement).toBeInTheDocument());
 	});
 });
