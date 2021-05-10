@@ -1,4 +1,5 @@
 import firebase from 'firebase/app';
+import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
@@ -16,7 +17,6 @@ const config = {
 		useFirestoreForProfile: true,
 		enableLogging: false,
 		logErrors: true,
-		enableRedirectHandling: false,
 	},
 };
 

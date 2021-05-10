@@ -1,35 +1,20 @@
 import LoginPage from './Login';
-import { Route, Switch, useHistory } from 'react-router';
+import { Route, Switch } from 'react-router';
 import PrivateRoute from './PrivateRoute';
-import { useFirebase } from 'react-redux-firebase';
+import Games from './Games';
+import { useSelector } from 'react-redux';
+import { UserIsAuthenticated, UserIsNotAuthenticated } from './ProtectedRoute';
+// import { Background } from 'components/Background';
 
 function App() {
-	const firebase = useFirebase();
-	const history = useHistory();
-
-	function signOut() {
-		firebase.logout().then(() => history.push('/'));
-	}
+	const auth = useSelector((state) => state.firebase.auth);
+	console.log(auth);
 	return (
-		<div>
-			<h2>kamp</h2>
-			<Switch>
-				<PrivateRoute path="/games">
-					games
-					<button
-						onClick={(event) => {
-							event.preventDefault();
-							signOut();
-						}}
-					>
-						Logga ut
-					</button>
-				</PrivateRoute>
-				<Route path="/">
-					<LoginPage />
-				</Route>
-			</Switch>
-		</div>
+		<Switch>
+			<Route exact path="/" component={UserIsNotAuthenticated(LoginPage)} />
+			<Route exact path="/games" component={UserIsAuthenticated(Games)} />
+			<Route path="*" component={LoginPage} />
+		</Switch>
 	);
 }
 

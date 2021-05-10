@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useFirebase, isLoaded } from 'react-redux-firebase';
+import { useFirebase } from 'react-redux-firebase';
 import { useHistory } from 'react-router-dom';
 
 function LoginPage() {
@@ -13,14 +13,9 @@ function LoginPage() {
 		});
 	}
 
-	function signOut() {
-		firebase.logout().then(() => history.push('/'));
-	}
-
 	return (
 		<div>
 			<h2>Auth</h2>
-			{!isLoaded(auth.isLoaded) && <span>Loading...</span>}
 			{!auth.uid && (
 				<button
 					onClick={(event) => {
@@ -29,16 +24,6 @@ function LoginPage() {
 					}}
 				>
 					Logga in med google
-				</button>
-			)}
-			{auth.uid && (
-				<button
-					onClick={(event) => {
-						event.preventDefault();
-						signOut();
-					}}
-				>
-					Logga ut
 				</button>
 			)}
 		</div>
