@@ -1,20 +1,31 @@
 import LoginPage from './Login';
-import { Route, Switch } from 'react-router';
-import PrivateRoute from './PrivateRoute';
+import { Route, Switch, useHistory } from 'react-router';
 import Games from './Games';
-import { useSelector } from 'react-redux';
 import { UserIsAuthenticated, UserIsNotAuthenticated } from './ProtectedRoute';
-// import { Background } from 'components/Background';
+import Start from './Start';
+import { Background, Layout } from './ui-components/Background';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 function App() {
-	const auth = useSelector((state) => state.firebase.auth);
-	console.log(auth);
+	const { location } = useHistory();
+
 	return (
-		<Switch>
-			<Route exact path="/" component={UserIsNotAuthenticated(LoginPage)} />
-			<Route exact path="/games" component={UserIsAuthenticated(Games)} />
-			<Route path="*" component={LoginPage} />
-		</Switch>
+		<Layout>
+			<TransitionGroup>
+				<CSSTransition
+					classNames={location.pathname !== '/' ? 'slide-up' : 'slide-up'}
+					timeout={{ enter: 1000, exit: 1000 }}
+				>
+					<Background path={location.pathname} />
+				</CSSTransition>
+			</TransitionGroup>
+			<Switch>
+				<Route exact path="/" component={Start} />
+				<Route exact path="/login" component={UserIsNotAuthenticated(LoginPage)} />
+				<Route exact path="/games" component={UserIsAuthenticated(Games)} />
+				<Route path="*" component={LoginPage} />
+			</Switch>
+		</Layout>
 	);
 }
 

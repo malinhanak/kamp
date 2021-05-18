@@ -1,6 +1,7 @@
 import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper';
 import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect';
 import { createBrowserHistory } from 'history';
+import { LoadingComponent } from './ui-components/LoadingComponents';
 // import LoadingScreen from 'components/LoadingScreen'; // change it to your custom component
 
 const locationHelper = locationHelperBuilder({});
@@ -10,9 +11,9 @@ const LoadingScreen = () => <div>Loading</div>;
 
 export const UserIsAuthenticated = connectedRouterRedirect({
 	wrapperDisplayName: 'UserIsAuthenticated',
-	AuthenticatingComponent: LoadingScreen,
+	AuthenticatingComponent: LoadingComponent,
 	allowRedirectBack: false,
-	redirectPath: (state, ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/',
+	redirectPath: (state, ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/login',
 	authenticatingSelector: ({ firebase: { auth, profile, isInitializing } }) =>
 		!auth.isLoaded || isInitializing === true,
 	authenticatedSelector: ({ firebase: { auth } }) => auth.isLoaded && !auth.isEmpty,

@@ -1,6 +1,7 @@
 export const kampTheme = {
 	colors: {
 		primary: '#73C0B0',
+		primaryRGB: '115, 192, 176',
 		secondary: '#7CA8BF',
 		font: '#2F4858',
 		white: '255, 255, 255',

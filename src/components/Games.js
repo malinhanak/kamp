@@ -19,6 +19,8 @@ function Games() {
 	]);
 
 	const games = useSelector((state) => state.firestore.ordered.games);
+	console.log('games', games);
+	console.log('auth', auth);
 
 	function signOut() {
 		firebase.logout().then(() => history.push('/'));
