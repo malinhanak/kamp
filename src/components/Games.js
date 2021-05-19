@@ -1,12 +1,15 @@
 import { useFirebase, useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
+import { Route, useHistory, useRouteMatch, withRouter } from 'react-router';
 import { auth as authSelector } from 'store/selectors/auth';
+import { UserIsAuthenticated } from './ProtectedRoute';
+import { Link } from 'react-router-dom';
 
-function Games() {
+export function Games() {
 	const auth = useSelector(authSelector);
 	const history = useHistory();
 	const firebase = useFirebase();
+	const match = useRouteMatch();
 
 	useFirestoreConnect([
 		{
@@ -19,8 +22,6 @@ function Games() {
 	]);
 
 	const games = useSelector((state) => state.firestore.ordered.games);
-	console.log('games', games);
-	console.log('auth', auth);
 
 	function signOut() {
 		firebase.logout().then(() => history.push('/'));
@@ -37,9 +38,15 @@ function Games() {
 				Logga ut
 			</button>
 			{games?.map((game) => {
-				return <h3 key={game.id}>{game.name}</h3>;
+				return (
+					<h3 key={game.id}>
+						<Link to={`${match.url}/${game.id}`}>{game.name}</Link>
+					</h3>
+				);
 			})}
+
+			<Route path={`${match.path}/:gameID`}>one game</Route>
 		</>
 	);
 }
-export default Games;
+export default withRouter(UserIsAuthenticated(Games));

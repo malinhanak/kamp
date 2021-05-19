@@ -1,17 +1,23 @@
+import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { LoadingComponent } from './ui-components/LoadingComponents';
 
 const Start = () => {
-	const history = useHistory();
-	console.log(history);
+	const { location, replace } = useHistory();
 
 	useEffect(() => {
-		const timer = setTimeout(() => history.replace('/login'), 5000);
+		const timer = setTimeout(() => replace('/login'), 5000);
 		return () => clearTimeout(timer);
-	}, [history]);
+	}, [location, replace]);
 
-	return <LoadingComponent />;
+	return (
+		<LoadingComponent
+			as={motion.img}
+			animate={{ opacity: 0 }}
+			transition={{ delay: 4.5, duration: 0.5 }}
+		/>
+	);
 };
 
 export default Start;
