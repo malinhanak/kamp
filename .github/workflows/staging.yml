@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./client
+        working-directory: ./src
     steps:
       - name: Checking out ⭕
         uses: actions/checkout@v2
