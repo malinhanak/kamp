@@ -9,7 +9,7 @@ import { GlobalStyle } from 'styles/GlobalStyle';
 ReactDOM.render(
 	<React.StrictMode>
 		<Providers>
-			<BrowserRouter>
+			<BrowserRouter basename="/">
 				<GlobalStyle />
 				<App />
 			</BrowserRouter>
