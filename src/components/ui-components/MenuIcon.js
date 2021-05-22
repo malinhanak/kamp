@@ -42,8 +42,10 @@ export const MenuIcon = () => {
 	const { openDrawer } = useContext(drawerContext);
 	const location = useLocation();
 
+	const isVisible = location.pathname !== '/' || location.pathname !== '/kamp';
+
 	return (
-		location.pathname !== '/' && (
+		!isVisible && (
 			<Base
 				initial={{ opacity: 0, left: -100 }}
 				animate={{ opacity: 1, left: '1.5rem' }}
