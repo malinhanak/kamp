@@ -1,14 +1,15 @@
-import { useFirebase, useFirestoreConnect } from 'react-redux-firebase';
+import { useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
-import { Route, useHistory, useRouteMatch, withRouter } from 'react-router';
+import { useRouteMatch, withRouter } from 'react-router';
 import { auth as authSelector } from 'store/selectors/auth';
-import { UserIsAuthenticated } from './ProtectedRoute';
+import { UserIsAuthenticated } from '../utils/HOC/ProtectedRoute';
 import { Link } from 'react-router-dom';
+import { TitleCircle } from './ui-components/Background';
+import { motion } from 'framer-motion';
+import { loginVariants } from './Login';
 
 export function Games() {
 	const auth = useSelector(authSelector);
-	const history = useHistory();
-	const firebase = useFirebase();
 	const match = useRouteMatch();
 
 	useFirestoreConnect([
@@ -23,30 +24,17 @@ export function Games() {
 
 	const games = useSelector((state) => state.firestore.ordered.games);
 
-	function signOut() {
-		firebase.logout().then(() => history.push('/'));
-	}
-
 	return (
-		<>
-			<button
-				onClick={(event) => {
-					event.preventDefault();
-					signOut();
-				}}
-			>
-				Logga ut
-			</button>
+		<motion.div variants={loginVariants} initial="initial" animate="animate" exit="exit">
+			<TitleCircle title="Spelkatalog" />
 			{games?.map((game) => {
 				return (
-					<h3 key={game.id}>
+					<motion.h3 key={game.id} variants={loginVariants}>
 						<Link to={`${match.url}/${game.id}`}>{game.name}</Link>
-					</h3>
+					</motion.h3>
 				);
 			})}
-
-			<Route path={`${match.path}/:gameID`}>one game</Route>
-		</>
+		</motion.div>
 	);
 }
 export default withRouter(UserIsAuthenticated(Games));

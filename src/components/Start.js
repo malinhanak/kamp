@@ -1,22 +1,19 @@
-import { motion } from 'framer-motion';
-import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { lazy, Suspense, useEffect } from 'react';
+import { Route, Switch, useLocation } from 'react-router-dom';
+import { Background } from './ui-components/Background';
 import { LoadingComponent } from './ui-components/LoadingComponents';
 
-const Start = () => {
-	const { location, replace } = useHistory();
+const LoginPage = lazy(() => import('./Login'));
+const Games = lazy(() => import('./Games'));
 
-	useEffect(() => {
-		const timer = setTimeout(() => replace('/login'), 5000);
-		return () => clearTimeout(timer);
-	}, [location, replace]);
+const Start = () => {
+	const location = useLocation();
 
 	return (
-		<LoadingComponent
-			as={motion.img}
-			animate={{ opacity: 0 }}
-			transition={{ delay: 4.5, duration: 0.5 }}
-		/>
+		<>
+			<Background viewBox="0 0 700 812" />
+			<LoadingComponent linkText="Enter" />
+		</>
 	);
 };
 

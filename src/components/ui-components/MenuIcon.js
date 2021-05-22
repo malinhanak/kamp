@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import styled from 'styled-components';
+import useVisability from 'utils/hooks/useVisability';
+import { drawerContext } from 'utils/providers/drawerProvider';
 
-const Base = styled.div`
+const Base = styled(motion.div)`
 	position: fixed;
 	top: 1.5rem;
 	left: 1.5rem;
@@ -38,31 +40,21 @@ const Bar = styled.div`
 `;
 
 export const MenuIcon = () => {
-	const [isVisible, setIsVisible] = useState(false);
-	let { pathname } = useLocation();
-	console.log(pathname);
-
-	useEffect(() => {
-		console.log('rendering', pathname);
-		if (pathname !== '/') {
-			console.log('path changed', pathname);
-			setIsVisible(true);
-		}
-
-		return () => setIsVisible(false);
-	}, [pathname]);
+	const { openDrawer } = useContext(drawerContext);
+	const location = useLocation();
 
 	return (
-		<Base
-			as={motion.div}
-			initial={{ opacity: 0, left: -100 }}
-			animate={isVisible ? { opacity: 1, left: '1.5rem' } : ''}
-			transition={{ delay: 1, duration: 1 }}
-			exit={{ opacity: 0, left: -100 }}
-		>
-			<Bar />
-			<Bar />
-			<Bar />
-		</Base>
+		location.pathname !== '/' && (
+			<Base
+				initial={{ opacity: 0, left: -100 }}
+				animate={{ opacity: 1, left: '1.5rem' }}
+				transition={{ delay: 1, duration: 1 }}
+				onClick={() => openDrawer()}
+			>
+				<Bar />
+				<Bar />
+				<Bar />
+			</Base>
+		)
 	);
 };

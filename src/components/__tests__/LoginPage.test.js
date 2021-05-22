@@ -9,7 +9,7 @@ describe('Should test the LoginPage Component', () => {
 
 	it('renders learn react link', async () => {
 		render(<LoginPage />, { initialState: initialState });
-		const linkElement = await screen.findByText(/Auth/i);
+		const linkElement = await screen.findByText(/ANSLUT OCH LÅT SPELEN BÖRJA…/i);
 		await waitFor(() => expect(linkElement).toBeInTheDocument());
 	});
 });

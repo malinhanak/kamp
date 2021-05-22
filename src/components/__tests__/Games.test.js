@@ -1,6 +1,6 @@
 import React from 'react';
 import { Games } from 'components/Games';
-import { render, screen, waitFor } from 'config/test-utils';
+import { fireEvent, render, screen, waitFor } from 'config/test-utils';
 import { useSelector } from 'react-redux';
 import { initialState } from 'store/reducer';
 
@@ -34,15 +34,13 @@ const auth = {
 	uid: 'x123',
 };
 
-describe('Should test the Games Component', () => {
-	it('should display logout button', async () => {
+describe('Games component', () => {
+	it('should display the games', async () => {
 		useSelector.mockReturnValueOnce(auth);
 		useSelector.mockReturnValueOnce(games);
 
 		render(<Games />, { initialState: initialState });
 		const gameElement = screen.getByText(/Junikampen/i);
 		expect(gameElement).toBeInTheDocument();
-		const linkElement = await screen.findByText('Logga ut');
-		await waitFor(() => expect(linkElement).toBeInTheDocument());
 	});
 });

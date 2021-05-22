@@ -1,24 +1,23 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
+import '@fontsource/roboto-mono/500.css';
 
 const pulse = keyframes`
 	0% {
-		transform: scale(0.98);
-		box-shadow: 0 0 0 0 rgba(115, 192, 176, 0.7);
+		box-shadow: 0 0 0 0 rgba(55, 95, 110, 0.7);
 	}
 
 	70% {
-		transform: scale(1);
-		box-shadow: 0 0 0 30px rgba(115, 192, 176, 0);
+		box-shadow: 0 0 0 30px rgba(55, 95, 110, 0);
 	}
 
 	100% {
-		transform: scale(0.98);
-		box-shadow: 0 0 0 30px rgba(115, 192, 176, 0);
+		box-shadow: 0 0 0 30px rgba(55, 95, 110, 0);
 	}
 `;
 
-const Container = styled.section`
+const Container = styled(motion.section)`
 	height: 100vh;
 	width: 100vw;
 	position: fixed;
@@ -38,6 +37,7 @@ export const Logotype = styled.h1`
 	font-style: normal;
 	font-size: 6rem;
 	color: ${(props) => props.theme.colors.primary};
+	line-height: 95px;
 `;
 
 export const LoadingCircle = styled.div`
@@ -46,6 +46,7 @@ export const LoadingCircle = styled.div`
 	background: rgba(${(props) => props.theme.colors.white}, 0.75);
 	border-radius: 50%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	border: 1px solid ${(props) => props.theme.colors.primary};
@@ -54,11 +55,26 @@ export const LoadingCircle = styled.div`
 	animation: ${pulse} 2s infinite;
 `;
 
-export const LoadingComponent = ({ classname }) => {
+const EnterLink = styled(Link)`
+	text-decoration: none;
+	font-family: 'Roboto Mono';
+	text-transform: lowercase;
+	font-size: 0.98rem;
+	color: ${(props) => props.theme.colors.darkBase};
+	margin-left: 0.7rem;
+`;
+
+export const LoadingComponent = ({ classname, linkText = false }) => {
 	return (
-		<Container className={classname}>
+		<Container
+			className={classname}
+			initial={{ y: 0 }}
+			exit={{ y: '1000vh' }}
+			transition={{ duration: 1 }}
+		>
 			<LoadingCircle>
 				<Logotype>K</Logotype>
+				{linkText && <EnterLink to="/login">{linkText}</EnterLink>}
 			</LoadingCircle>
 		</Container>
 	);

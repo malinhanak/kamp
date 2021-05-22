@@ -9,6 +9,7 @@ import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import { ThemeProvider } from 'styled-components';
 import { kampTheme } from 'styles/kampTheme';
 import { GlobalStyle } from 'styles/GlobalStyle';
+import '@testing-library/jest-dom/extend-expect';
 
 function render(ui, { initialState, store = configureStore(), ...renderOptions } = {}) {
 	function Wrapper({ children }) {
