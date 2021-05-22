@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { useLocation } from 'react-router';
 import styled from 'styled-components';
-import useVisability from 'utils/hooks/useVisability';
 import { drawerContext } from 'utils/providers/drawerProvider';
 
 const Base = styled(motion.div)`

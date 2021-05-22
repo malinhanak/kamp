@@ -2,7 +2,6 @@ import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper';
 import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect';
 import { createBrowserHistory } from 'history';
 import { LoadingComponent } from 'components/ui-components/LoadingComponents';
-import SmallLoader from 'components/ui-components/SmallLoader';
 
 const locationHelper = locationHelperBuilder({});
 const browserHistory = createBrowserHistory();
