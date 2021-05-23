@@ -2,8 +2,8 @@ import { GoogleIcon } from 'assets';
 import { useFirebase } from 'react-redux-firebase';
 import { useHistory, withRouter } from 'react-router-dom';
 import { UserIsNotAuthenticated } from '../utils/HOC/ProtectedRoute';
-import { TitleCircle } from './ui-components/Background';
 import LoginWithGoogle from './ui-components/Button';
+import { PageTitle } from './ui-components/PageTitle';
 import { HeadingSix, Typography } from './ui-components/Typography';
 
 export const loginVariants = {
@@ -25,7 +25,7 @@ export function LoginPage() {
 
 	return (
 		<>
-			<TitleCircle title="logga in" />
+			<PageTitle title="logga in" />
 			<LoginWithGoogle
 				action={loginWithGoogle}
 				variation="google"

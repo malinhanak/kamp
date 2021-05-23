@@ -9,4 +9,16 @@ export const GlobalStyle = createGlobalStyle`
   body {
     color: ${(props) => props.theme.colors.font};
   }
+
+	#page-title-root {
+		width: 100%;
+		max-height: 400px;
+
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 12;
+
+		pointer-events: none;
+	}
 `;
