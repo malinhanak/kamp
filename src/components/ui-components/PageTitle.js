@@ -37,7 +37,6 @@ const Title = styled.h3`
 `;
 
 const Heading = styled(motion.section)`
-	position: relative;
 	display: flex;
 	justify-content: center;
 `;
