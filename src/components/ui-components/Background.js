@@ -95,15 +95,17 @@ export const LayoutBackground = ({ classname, path }) => {
 
 export const TitleCircle = ({ classname, title }) => {
 	return (
-		<Heading
-			className={classname}
-			initial={{ y: '-100vh', opacity: 0 }}
-			animate={{ y: 0, opacity: 1 }}
-			exit={{ y: '-100vh' }}
-			transition={{ ease: 'easeInOut', duration: 1 }}
-		>
-			<Circle src={SvgCircle} viewBox="0 0 700 812" />
-			<Title>{title}</Title>
-		</Heading>
+		<Wrapper id="title-circle" className={classname}>
+			<Heading
+				className={classname}
+				initial={{ y: '-100vh', opacity: 0 }}
+				animate={{ y: 0, opacity: 1 }}
+				exit={{ y: '-100vh' }}
+				transition={{ ease: 'easeInOut', duration: 1 }}
+			>
+				<Circle src={SvgCircle} viewBox="0 0 700 812" />
+				<Title>{title}</Title>
+			</Heading>
+		</Wrapper>
 	);
 };
