@@ -4,9 +4,9 @@ import { useRouteMatch, withRouter } from 'react-router';
 import { auth as authSelector } from 'store/selectors/auth';
 import { UserIsAuthenticated } from '../utils/HOC/ProtectedRoute';
 import { Link } from 'react-router-dom';
-import { TitleCircle } from './ui-components/Background';
 import { motion } from 'framer-motion';
 import { loginVariants } from './Login';
+import { PageTitle } from './ui-components/PageTitle';
 
 export function Games() {
 	const auth = useSelector(authSelector);
@@ -26,7 +26,7 @@ export function Games() {
 
 	return (
 		<motion.div variants={loginVariants} initial="initial" animate="animate" exit="exit">
-			<TitleCircle title="Spelkatalog" />
+			<PageTitle title="Spelkatalog" />
 			{games?.map((game) => {
 				return (
 					<motion.h3 key={game.id} variants={loginVariants}>

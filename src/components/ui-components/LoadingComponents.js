@@ -55,7 +55,7 @@ export const LoadingCircle = styled.div`
 	animation: ${pulse} 2s infinite;
 `;
 
-const EnterLink = styled(Link)`
+const EnterText = styled.p`
 	text-decoration: none;
 	font-family: 'Roboto Mono';
 	text-transform: lowercase;
@@ -74,7 +74,7 @@ export const LoadingComponent = ({ classname, linkText = false }) => {
 		>
 			<LoadingCircle>
 				<Logotype>K</Logotype>
-				{linkText && <EnterLink to="/login">{linkText}</EnterLink>}
+				{linkText && <EnterText>{linkText}</EnterText>}
 			</LoadingCircle>
 		</Container>
 	);

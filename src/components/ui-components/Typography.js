@@ -14,4 +14,5 @@ export const HeadingSix = styled(motion.h6)`
 	text-transform: uppercase;
 	text-align: center;
 	width: 100%;
+	margin: ${(props) => props.margin || 'inherit'};
 `;

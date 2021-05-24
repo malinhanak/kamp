@@ -1,4 +1,5 @@
 import { GoogleIcon } from 'assets';
+import { motion } from 'framer-motion';
 import { useFirebase } from 'react-redux-firebase';
 import { useHistory, withRouter } from 'react-router-dom';
 import { UserIsNotAuthenticated } from '../utils/HOC/ProtectedRoute';
@@ -26,21 +27,23 @@ export function LoginPage() {
 	return (
 		<>
 			<PageTitle title="logga in" />
-			<LoginWithGoogle
-				action={loginWithGoogle}
-				variation="google"
-				icon={<img src={GoogleIcon} alt="google icon" />}
-			/>
-			<Typography
-				as={HeadingSix}
-				fontColor="greensDark"
-				variants={loginVariants}
-				initial="initial"
-				animate="animate"
-				exit="exit"
-			>
-				ANSLUT OCH LÅT SPELEN BÖRJA…
-			</Typography>
+			<motion.div variants={loginVariants} initial="initial" animate="animate" exit="exit">
+				<LoginWithGoogle
+					action={loginWithGoogle}
+					variation="google"
+					icon={<img src={GoogleIcon} alt="google icon" />}
+					text={
+						<Typography
+							as={HeadingSix}
+							fontColor="greensDark"
+							variants={loginVariants}
+							margin="0 0 0 1rem"
+						>
+							ANSLUT MED GOOGLE
+						</Typography>
+					}
+				/>
+			</motion.div>
 		</>
 	);
 }

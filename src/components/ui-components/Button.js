@@ -14,9 +14,10 @@ const ButtonStyle = styled(motion.button)`
 const google = css`
 	border: 1px solid ${(props) => props.theme.colors.buttons.google.blue};
 	background: ${(props) => props.theme.colors.buttons.google.base};
-	border-radius: 50%;
-	width: 52px;
-	height: 52px;
+	border-radius: 40px;
+	min-width: 52px;
+	min-height: 52px;
+	padding: 0.5rem 0.8rem;
 `;
 
 function Button({ classname, icon, text, action, variation = null }) {
