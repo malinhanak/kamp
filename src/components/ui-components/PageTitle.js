@@ -28,7 +28,7 @@ const Circle = styled.img`
 const Title = styled.h3`
 	position: absolute;
 	z-index: 20;
-	margin-top: 3rem;
+	// margin-top: 3rem;
 	top: 0;
 	font-family: 'Roboto Mono';
 	text-transform: lowercase;
