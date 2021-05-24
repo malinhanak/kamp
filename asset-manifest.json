@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/kamp/static/js/main.ca797011.chunk.js",
-    "main.js.map": "/kamp/static/js/main.ca797011.chunk.js.map",
+    "main.js": "/kamp/static/js/main.07898d88.chunk.js",
+    "main.js.map": "/kamp/static/js/main.07898d88.chunk.js.map",
     "runtime-main.js": "/kamp/static/js/runtime-main.5fa3142f.js",
     "runtime-main.js.map": "/kamp/static/js/runtime-main.5fa3142f.js.map",
     "static/css/2.185b6bb8.chunk.css": "/kamp/static/css/2.185b6bb8.chunk.css",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.5fa3142f.js",
     "static/css/2.185b6bb8.chunk.css",
     "static/js/2.9431d639.chunk.js",
-    "static/js/main.ca797011.chunk.js"
+    "static/js/main.07898d88.chunk.js"
   ]
 }
