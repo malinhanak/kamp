@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import '@fontsource/roboto-mono/500.css';
 
