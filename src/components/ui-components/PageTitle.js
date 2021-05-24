@@ -22,13 +22,13 @@ export const PageTitle = ({ classname, title }) => {
 
 const Circle = styled.img`
 	width: 100%;
-	height: auto;
+	height: 140px;
 `;
 
 const Title = styled.h3`
 	position: absolute;
 	z-index: 20;
-	// margin-top: 3rem;
+	margin-top: 3rem;
 	top: 0;
 	font-family: 'Roboto Mono';
 	text-transform: lowercase;
