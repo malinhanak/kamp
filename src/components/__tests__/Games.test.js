@@ -14,6 +14,15 @@ jest.mock('react-redux-firebase', () => ({
 	useFirestoreConnect: jest.fn(),
 }));
 
+jest.mock('react-dom', () => {
+	return {
+		...jest.requireActual('react-dom'),
+		createPortal: (element, target) => {
+			return element;
+		},
+	};
+});
+
 const games = [
 	{
 		active: true,
