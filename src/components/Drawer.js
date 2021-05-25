@@ -2,10 +2,11 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { X } from 'react-feather';
 import '@fontsource/roboto-condensed';
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { drawerContext } from 'utils/providers/drawerProvider';
 import { AnimatePresence, motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
+import { useClickAway } from 'react-use';
 
 const DrawerWrapper = styled.aside`
 	width: 100%;
@@ -76,10 +77,14 @@ const Closer = ({ classname, icon, action }) => {
 function Drawer({ children }) {
 	const { isDrawerOpen, closeDrawer } = useContext(drawerContext);
 
+	const ref = useRef(null);
+	useClickAway(ref, () => closeDrawer());
+
 	return ReactDOM.createPortal(
 		<AnimatePresence>
 			{isDrawerOpen && (
 				<DrawerWrapper
+					ref={ref}
 					as={motion.aside}
 					initial={{ x: -300 }}
 					animate={{ x: 0 }}
