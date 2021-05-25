@@ -38,7 +38,7 @@ export default function SmallLoader() {
 			}}
 		>
 			<Loader variants={loaderVariants} initial="initial" animate="animate" />
-			<Typography as={HeadingSix} fontColor="darkBase" style={{ margin: 0 }}>
+			<Typography as={HeadingSix} casing="upper" fontColor="darkBase" style={{ margin: 0 }}>
 				Loading
 			</Typography>
 		</div>

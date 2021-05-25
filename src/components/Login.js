@@ -1,7 +1,7 @@
 import { GoogleIcon } from 'assets';
 import { motion } from 'framer-motion';
 import { useFirebase } from 'react-redux-firebase';
-import { useHistory, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { UserIsNotAuthenticated } from '../utils/HOC/ProtectedRoute';
 import LoginWithGoogle from './ui-components/Button';
 import { PageTitle } from './ui-components/PageTitle';
@@ -15,13 +15,9 @@ export const loginVariants = {
 
 export function LoginPage() {
 	const firebase = useFirebase();
-	const history = useHistory();
 
 	function loginWithGoogle() {
-		console.log('triggered');
-		firebase.login({ provider: 'google', type: 'popup' }).then(() => {
-			history.push('/games');
-		});
+		firebase.login({ provider: 'google', type: 'popup' });
 	}
 
 	return (
@@ -35,6 +31,7 @@ export function LoginPage() {
 					text={
 						<Typography
 							as={HeadingSix}
+							casing="upper"
 							fontColor="greensDark"
 							variants={loginVariants}
 							margin="0 0 0 1rem"

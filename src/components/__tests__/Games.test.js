@@ -44,12 +44,22 @@ const auth = {
 };
 
 describe('Games component', () => {
+	it('should display page title', async () => {
+		useSelector.mockReturnValueOnce(auth);
+		useSelector.mockReturnValueOnce(games);
+
+		render(<Games />, { initialState: initialState });
+
+		const titleElement = await screen.findByText('Spelkatalog');
+		expect(titleElement).toBeInTheDocument();
+	});
+
 	it('should display the games', async () => {
 		useSelector.mockReturnValueOnce(auth);
 		useSelector.mockReturnValueOnce(games);
 
 		render(<Games />, { initialState: initialState });
-		const gameElement = screen.getByText(/Junikampen/i);
+		const gameElement = await screen.findByText(/Junikampen/i);
 		expect(gameElement).toBeInTheDocument();
 	});
 });

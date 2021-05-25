@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import '@fontsource/poppins';
 
 export const GlobalStyle = createGlobalStyle`
 	html, body {
@@ -8,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 	}
   body {
     color: ${(props) => props.theme.colors.font};
+		font-family: ${(props) => props.theme.font.family};
   }
 
 	#page-title-root {

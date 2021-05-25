@@ -5,16 +5,16 @@ import { firestoreReducer } from 'redux-firestore';
 import 'firebase/firestore';
 
 export const initialState = {
-	someInitialState: null,
+	isNewUser: false,
 };
 
 const app = (state = initialState, action) => {
 	switch (action.type) {
-		// case 'SOME_FUN_ACTION':
-		// 	return {
-		// 		...state,
-		// 		someFunAction: action.payload,
-		// 	};
+		case 'IS_NEW_USER':
+			return {
+				...state,
+				isNewUser: action.payload,
+			};
 		default:
 			return state;
 	}

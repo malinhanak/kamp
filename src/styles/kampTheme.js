@@ -1,5 +1,6 @@
 export const kampTheme = {
 	font: {
+		family: 'Poppins',
 		alt: {
 			family: 'Roboto Condensed',
 		},
