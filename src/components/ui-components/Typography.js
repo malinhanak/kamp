@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import '@fontsource/roboto-condensed';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const textCasing = (casing) => {
 	switch (casing) {
@@ -41,4 +42,10 @@ export const Paragraph = styled.p`
 	text-align: center;
 	width: 100%;
 	margin: ${(props) => props.margin || 'inherit'};
+`;
+
+export const GamesLink = styled(Link)`
+	text-decoration: none;
+	font-size: 1.2rem;
+	color: rgb(${(props) => props.theme.colors.white});
 `;

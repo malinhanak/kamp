@@ -13,6 +13,9 @@ export default function DrawerLinks() {
 
 	return (
 		<>
+			<DrawerLink to="/about" onClick={closeDrawer}>
+				Om kamp
+			</DrawerLink>
 			{!isEmpty(auth) && isLoaded(auth) && (
 				<DrawerLink to="/games" onClick={closeDrawer}>
 					Spelkatalog
