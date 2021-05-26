@@ -2,7 +2,6 @@ import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper';
 import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect';
 import { createBrowserHistory } from 'history';
 import { LoadingComponent } from 'components/ui-components/LoadingComponents';
-// import add from 'date-fns/add';
 
 const locationHelper = locationHelperBuilder({});
 const browserHistory = createBrowserHistory();
@@ -11,7 +10,7 @@ export const UserIsAuthenticated = connectedRouterRedirect({
 	wrapperDisplayName: 'UserIsAuthenticated',
 	AuthenticatingComponent: LoadingComponent,
 	allowRedirectBack: false,
-	redirectPath: (ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/login',
+	redirectPath: (state, ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/login',
 	authenticatingSelector: ({ firebase: { auth, isInitializing } }) =>
 		!auth.isLoaded || isInitializing === true,
 	authenticatedSelector: ({ firebase: { auth } }) => auth.isLoaded && !auth.isEmpty,
@@ -25,7 +24,7 @@ export const UserIsNotAuthenticated = connectedRouterRedirect({
 	wrapperDisplayName: 'UserIsNotAuthenticated',
 	AuthenticatingComponent: LoadingComponent,
 	allowRedirectBack: false,
-	redirectPath: (ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/games',
+	redirectPath: (state, ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/games',
 	authenticatingSelector: ({ firebase: { auth, isInitializing } }) =>
 		!auth.isLoaded || isInitializing === true,
 	authenticatedSelector: ({ firebase: { auth } }) => auth.isLoaded && auth.isEmpty,
