@@ -11,8 +11,8 @@ export const UserIsAuthenticated = connectedRouterRedirect({
 	wrapperDisplayName: 'UserIsAuthenticated',
 	AuthenticatingComponent: LoadingComponent,
 	allowRedirectBack: false,
-	redirectPath: (state, ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/login',
-	authenticatingSelector: ({ firebase: { auth, profile, isInitializing } }) =>
+	redirectPath: (ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/login',
+	authenticatingSelector: ({ firebase: { auth, isInitializing } }) =>
 		!auth.isLoaded || isInitializing === true,
 	authenticatedSelector: ({ firebase: { auth } }) => auth.isLoaded && !auth.isEmpty,
 	redirectAction: (newLoc) => (dispatch) => {
@@ -25,7 +25,7 @@ export const UserIsNotAuthenticated = connectedRouterRedirect({
 	wrapperDisplayName: 'UserIsNotAuthenticated',
 	AuthenticatingComponent: LoadingComponent,
 	allowRedirectBack: false,
-	redirectPath: (state, ownProps) => {
+	redirectPath: (ownProps) => {
 		// const timestamp = state.firebase.auth.createdAt;
 		// const newUserTime = add(new Date(timestamp), { hours: 1 });
 		// const hasPastNewUserTimePassed = new Date() <= newUserTime;

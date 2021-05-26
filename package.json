@@ -45,10 +45,18 @@
 		"prepare": "husky install"
 	},
 	"eslintConfig": {
+		"plugins": [
+			"unused-imports"
+		],
 		"extends": [
 			"react-app",
 			"react-app/jest"
-		]
+		],
+		"rules": {
+			"no-unused-vars": "off",
+			"unused-imports/no-unused-imports": "error",
+			"unused-imports/no-unused-vars": "warn"
+		}
 	},
 	"husky": {
 		"hooks": {
@@ -76,6 +84,7 @@
 	"devDependencies": {
 		"eslint-plugin-jsx-a11y": "^6.4.1",
 		"eslint-plugin-prettier": "^3.4.0",
+		"eslint-plugin-unused-imports": "^1.1.1",
 		"husky": "^6.0.0"
 	}
 }
