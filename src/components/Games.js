@@ -5,9 +5,9 @@ import { auth as authSelector } from 'store/selectors/auth';
 import { UserIsAuthenticated } from '../utils/HOC/ProtectedRoute';
 import { PageTitle } from './ui-components/PageTitle';
 import { Message } from './ui-components/Message';
-import { LoadingComponent } from './ui-components/LoadingComponents';
 import { Typography, GamesLink } from './ui-components/Typography';
 import { GamesContainer, GameItem } from 'components/ui-components/GameItem';
+import ThreeDotsWave from './ui-components/SmallLoader';
 
 export function Games() {
 	const auth = useSelector(authSelector);
@@ -45,7 +45,7 @@ export function Games() {
 	};
 
 	if (!isLoaded(games)) {
-		return <LoadingComponent />;
+		return <ThreeDotsWave />;
 	}
 
 	if (isEmpty(games)) {
