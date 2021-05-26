@@ -13,7 +13,7 @@ const Container = styled.section`
 	width: 100vw;
 	position: fixed;
 	top: 0;
-	right: 0;
+	left: 0;
 	z-index: 1;
 
 	pointer-events: none;
@@ -48,9 +48,28 @@ const BG = styled(motion.img)`
 	pointer-events: none;
 `;
 
-const NoAnimateBG = styled(BG)`
+const ContainerLayout = styled.section`
+	height: ${(props) => props.bgHeight || '60vh'};
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+
+	pointer-events: none;
 	transform: translateY(-250px);
-	z-index: 0;
+`;
+
+const NoAnimateBG = styled.img`
+	width: 100%;
+	height: auto;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+
+	pointer-events: none;
 `;
 
 const Title = styled.h3`
@@ -70,7 +89,7 @@ const Heading = styled(motion.section)`
 	justify-content: center;
 `;
 
-export const Background = ({ classname, path }) => {
+export const Background = ({ classname }) => {
 	return (
 		<Container className={classname}>
 			<BG
@@ -85,11 +104,11 @@ export const Background = ({ classname, path }) => {
 	);
 };
 
-export const LayoutBackground = ({ classname, path }) => {
+export const LayoutBackground = ({ classname }) => {
 	return (
-		<Container className={classname}>
+		<ContainerLayout className={classname}>
 			<NoAnimateBG src={MainLongBg} viewBox="0 0 700 812" />
-		</Container>
+		</ContainerLayout>
 	);
 };
 

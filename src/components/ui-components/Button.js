@@ -1,4 +1,4 @@
-import { loginVariants } from 'components/Login';
+import { loginVariants } from 'components/animationVariants';
 import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 

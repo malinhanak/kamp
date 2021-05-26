@@ -42,7 +42,8 @@ export const MenuIcon = () => {
 	const { openDrawer } = useContext(drawerContext);
 	const location = useLocation();
 
-	const isVisible = location.pathname !== '/' && location.pathname !== '/kamp/';
+	const isVisible =
+		location.pathname !== '/' && location.pathname !== '/kamp/' && location.pathname !== '/kamp';
 
 	return (
 		isVisible && (
