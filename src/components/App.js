@@ -8,7 +8,6 @@ import Wrapper from 'styles/ContentWrapper';
 import LoginPage from './Login';
 import Games from './Games';
 import Start from './Start';
-import NewPlayer from './NewPlayer';
 
 function App() {
 	const location = useLocation();
