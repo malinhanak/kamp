@@ -25,16 +25,7 @@ export const UserIsNotAuthenticated = connectedRouterRedirect({
 	wrapperDisplayName: 'UserIsNotAuthenticated',
 	AuthenticatingComponent: LoadingComponent,
 	allowRedirectBack: false,
-	redirectPath: (ownProps) => {
-		// const timestamp = state.firebase.auth.createdAt;
-		// const newUserTime = add(new Date(timestamp), { hours: 1 });
-		// const hasPastNewUserTimePassed = new Date() <= newUserTime;
-		// if (hasPastNewUserTimePassed) {
-		// 	return locationHelper.getRedirectQueryParam(ownProps) || '/new-player';
-		// }
-
-		return locationHelper.getRedirectQueryParam(ownProps) || '/games';
-	},
+	redirectPath: (ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/games',
 	authenticatingSelector: ({ firebase: { auth, isInitializing } }) =>
 		!auth.isLoaded || isInitializing === true,
 	authenticatedSelector: ({ firebase: { auth } }) => auth.isLoaded && auth.isEmpty,
@@ -43,3 +34,9 @@ export const UserIsNotAuthenticated = connectedRouterRedirect({
 		dispatch({ type: 'UNAUTHED_REDIRECT' });
 	},
 });
+// const timestamp = state.firebase.auth.createdAt;
+// const newUserTime = add(new Date(timestamp), { hours: 1 });
+// const hasPastNewUserTimePassed = new Date() <= newUserTime;
+// if (hasPastNewUserTimePassed) {
+// 	return locationHelper.getRedirectQueryParam(ownProps) || '/new-player';
+// }

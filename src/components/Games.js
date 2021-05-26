@@ -19,6 +19,7 @@ export function Games() {
 			collection: query,
 			where: [
 				['ownerId', '==', auth.uid],
+				// ['players', 'array-contains', auth.uid],
 				['active', '==', true],
 			],
 		},
