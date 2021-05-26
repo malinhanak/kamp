@@ -22,14 +22,13 @@ function App() {
 			<MenuIcon data-testid="drawer-opener" />
 			<AnimatePresence exitBeforeEnter>
 				<Switch location={location} key={location.key}>
-					<Route path={['/login', '/games', '/new-player']}>
+					<Route path={['/login', '/games']}>
 						<Layout>
 							<LayoutBackground path={history.location.pathname} viewBox="0 0 700 812" />
 							<Wrapper>
 								<Switch location={location} key={location.key}>
 									<Route exact path="/login" component={LoginPage} />
 									<Route exact path="/games" component={Games} />
-									<Route exact path="/new-player" component={NewPlayer} />
 									<Route exact path="/games/:gameId" render={() => 'A game'} />
 									<Route path="*">Can't find path</Route>
 								</Switch>
