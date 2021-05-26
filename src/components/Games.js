@@ -5,9 +5,9 @@ import { auth as authSelector } from 'store/selectors/auth';
 import { UserIsAuthenticated } from '../utils/HOC/ProtectedRoute';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { loginVariants } from './Login';
 import { PageTitle } from './ui-components/PageTitle';
 import { Message } from './ui-components/Message';
+import { loginVariants } from './animationVariants';
 
 export function Games() {
 	const auth = useSelector(authSelector);
