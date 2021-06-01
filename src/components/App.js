@@ -4,11 +4,12 @@ import { AnimatePresence } from 'framer-motion';
 import { MenuIcon } from './ui-components/MenuIcon';
 import Drawer from './Drawer';
 import DrawerLinks from './DrawerLinks';
-import Wrapper from 'styles/ContentWrapper';
+import { ContentWrapper } from 'styles/ContentWrapper';
 import LoginPage from './Login';
-import Games from './Games';
+import Games from './GamesList';
 import Start from './Start';
 import { About } from './About';
+import Game from './Game';
 
 function App() {
 	const location = useLocation();
@@ -21,18 +22,23 @@ function App() {
 			<MenuIcon data-testid="drawer-opener" />
 			<AnimatePresence exitBeforeEnter>
 				<Switch location={location} key={location.key}>
-					<Route path={['/login', '/games', '/about']}>
+					<Route path={['/login', '/games', '/game', '/about']}>
 						<Layout>
 							<LayoutBackground viewBox="0 0 700 812" />
-							<Wrapper>
+							<ContentWrapper>
 								<Switch location={location} key={location.key}>
 									<Route path="/about" component={About} />
 									<Route exact path="/login" component={LoginPage} />
 									<Route exact path="/games" component={Games} />
-									<Route exact path="/games/:gameId" render={() => 'A game'} />
+									<Route exact path="/game/:gameId" component={Game} />
+									<Route
+										exact
+										path="/game/:gameId/:selectedGame"
+										render={() => 'valt spel regler'}
+									/>
 									<Route path="*">Can't find path</Route>
 								</Switch>
-							</Wrapper>
+							</ContentWrapper>
 						</Layout>
 					</Route>
 					<Route path={['/']}>

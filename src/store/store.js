@@ -3,13 +3,11 @@ import { createBrowserHistory } from 'history';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { rootReducer } from './reducer';
 import { routerMiddleware } from 'connected-react-router';
-import { createFirestoreInstance } from 'redux-firestore';
-import fbConfig, { reduxFirebase } from 'config/client';
 
-export const history = createBrowserHistory();
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const configureStore = (preloadedState) => {
+	const history = createBrowserHistory();
 	const store = createStore(
 		rootReducer(history),
 		preloadedState,
@@ -23,14 +21,7 @@ export const configureStore = (preloadedState) => {
 		});
 	}
 
-	return store;
+	return { store, history };
 };
 
-export const store = configureStore();
-
-export const rrfProps = {
-	firebase: fbConfig,
-	config: reduxFirebase,
-	dispatch: store.dispatch,
-	createFirestoreInstance,
-};
+// export const store = configureStore();
