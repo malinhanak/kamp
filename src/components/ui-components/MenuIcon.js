@@ -22,23 +22,6 @@ const Base = styled(motion.div)`
 	justify-content: center;
 `;
 
-const Bar = styled.div`
-	width: 80%;
-	height: 2px;
-	background: rgb(${(props) => props.theme.colors.white});
-	margin: 0;
-	margin-bottom: 0.3rem;
-	border-radius: 12px;
-
-	&:nth-child(2) {
-		width: 75%;
-	}
-
-	&:last-of-type {
-		margin-bottom: 0;
-	}
-`;
-
 export const MenuIcon = () => {
 	const { openDrawer } = useContext(drawerContext);
 	const location = useLocation();

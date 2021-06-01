@@ -1,6 +1,6 @@
 import { isEmpty, isLoaded, useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
-import { useRouteMatch, withRouter } from 'react-router';
+import { withRouter } from 'react-router';
 import { auth as authSelector } from 'store/selectors/auth';
 import { UserIsAuthenticated } from '../utils/HOC/ProtectedRoute';
 import { PageTitle } from './ui-components/PageTitle';
@@ -11,7 +11,6 @@ import ThreeDotsWave from './ui-components/SmallLoader';
 
 export function Games() {
 	const auth = useSelector(authSelector);
-	const match = useRouteMatch();
 	const query = 'games';
 
 	useFirestoreConnect([
