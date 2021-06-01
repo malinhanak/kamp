@@ -3,14 +3,15 @@ import { useContext } from 'react';
 import { useLocation } from 'react-router';
 import styled from 'styled-components';
 import { drawerContext } from 'utils/providers/drawerProvider';
+import { Menu } from 'react-feather';
 
 const Base = styled(motion.div)`
 	position: fixed;
 	top: 1.5rem;
 	left: 1.5rem;
 	z-index: 100;
-	min-width: 30px;
-	min-height: 30px;
+	min-width: 40px;
+	min-height: 40px;
 	background: ${(props) => props.theme.colors.darkBase};
 	border: 2px solid rgb(${(props) => props.theme.colors.white});
 	border-radius: 50%;
@@ -53,9 +54,7 @@ export const MenuIcon = () => {
 				transition={{ delay: 1, duration: 1 }}
 				onClick={() => openDrawer()}
 			>
-				<Bar />
-				<Bar />
-				<Bar />
+				<Menu color="white" />
 			</Base>
 		)
 	);

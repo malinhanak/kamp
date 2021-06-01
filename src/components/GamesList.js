@@ -5,7 +5,7 @@ import { auth as authSelector } from 'store/selectors/auth';
 import { UserIsAuthenticated } from '../utils/HOC/ProtectedRoute';
 import { PageTitle } from './ui-components/PageTitle';
 import { Message } from './ui-components/Message';
-import { Typography, GamesLink } from './ui-components/Typography';
+import { Typography, GamesLinkText } from './ui-components/Typography';
 import { GamesContainer, GameItem } from 'components/ui-components/GameItem';
 import ThreeDotsWave from './ui-components/SmallLoader';
 
@@ -66,10 +66,8 @@ export function Games() {
 				exit="exit"
 			>
 				{games?.map((game) => (
-					<GameItem key={game.id} variants={gameItemVariant}>
-						<Typography as={GamesLink} to={`${match.url}/${game.id}`}>
-							{game.name}
-						</Typography>
+					<GameItem key={game.id} variants={gameItemVariant} path={`game/${game.id}`}>
+						<Typography as={GamesLinkText}>{game.name}</Typography>
 					</GameItem>
 				))}
 			</GamesContainer>

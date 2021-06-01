@@ -23,7 +23,13 @@ export function LoginPage() {
 	return (
 		<>
 			<PageTitle title="logga in" />
-			<motion.div variants={loginVariants} initial="initial" animate="animate" exit="exit">
+			<motion.div
+				variants={loginVariants}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+				style={{ margin: 'auto' }}
+			>
 				<LoginWithGoogle
 					action={loginWithGoogle}
 					variation="google"
