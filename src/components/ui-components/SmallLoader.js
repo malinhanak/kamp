@@ -5,6 +5,7 @@ const loadingContainer = {
 	height: '2rem',
 	display: 'flex',
 	justifyContent: 'space-around',
+	margin: 'auto',
 };
 
 const loadingCircle = {
@@ -39,7 +40,7 @@ const loadingCircleVariants = {
 
 const loadingCircleTransition = {
 	duration: 0.5,
-	yoyo: Infinity,
+	repeat: Infinity,
 	ease: 'easeInOut',
 };
 
