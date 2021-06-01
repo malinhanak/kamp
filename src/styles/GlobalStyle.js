@@ -12,6 +12,10 @@ export const GlobalStyle = createGlobalStyle`
 		font-family: ${(props) => props.theme.font.family};
   }
 
+	* {
+		box-sizing: border-box;
+	}
+
 	#page-title-root {
 		width: 100vw;
 		max-height: 400px;
