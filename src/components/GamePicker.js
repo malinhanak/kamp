@@ -2,10 +2,11 @@ import { useRouteMatch, withRouter } from 'react-router';
 import { AnimatePresence, motion } from 'framer-motion';
 import styled from 'styled-components';
 import { ChevronDown } from 'react-feather';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Paragraph, Typography } from './ui-components/Typography';
 import { useDispatch } from 'react-redux';
 import { push } from 'connected-react-router';
+import { useClickAway } from 'react-use';
 
 const Picker = styled(motion.div)`
 	border: 1px solid ${(props) => props.theme.colors.primary};
@@ -52,11 +53,11 @@ export function GamePicker({ gameSelection }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const match = useRouteMatch();
 	const dispatch = useDispatch();
+	const ref = useRef(null);
 
-	const onTap = (event, info) => {
-		console.log(info.point.x, info.point.y);
-		setIsOpen(!isOpen);
-	};
+	useClickAway(ref, () => setIsOpen(false));
+
+	const onTap = (event, info) => setIsOpen(!isOpen);
 
 	const dropdownVariant = {
 		initial: {
@@ -80,6 +81,27 @@ export function GamePicker({ gameSelection }) {
 		},
 	};
 
+	const iconVariant = {
+		initial: {
+			rotate: 0,
+			transition: {
+				duration: 0.5,
+			},
+		},
+		animate: {
+			rotate: 180,
+			transition: {
+				duration: 0.5,
+			},
+		},
+		exit: {
+			rotate: 0,
+			transition: {
+				duration: 0.5,
+			},
+		},
+	};
+
 	const games = gameSelection?.map((game) => {
 		return (
 			<Typography
@@ -96,14 +118,21 @@ export function GamePicker({ gameSelection }) {
 
 	return (
 		<AnimatePresence>
-			<Wrapper id="game-picker">
+			<Wrapper ref={ref} id="game-picker">
 				{isOpen && (
 					<Selections variants={dropdownVariant} initial="exit" animate="initial" exit="exit">
 						{games}
 					</Selections>
 				)}
 				<Picker onTap={onTap}>
-					välj tävlingsgren <ChevronDown size={24} strokeWidth={1.5} />
+					välj tävlingsgren
+					<motion.span
+						variants={iconVariant}
+						animate={isOpen ? 'animate' : 'exit'}
+						style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+					>
+						<ChevronDown size={24} strokeWidth={1.5} />
+					</motion.span>
 				</Picker>
 			</Wrapper>
 		</AnimatePresence>
