@@ -19,7 +19,8 @@ const MainContainer = styled(motion.section)`
 	align-items: flex-start;
 	width: 90%;
 	background-color: rgb(${(props) => props.theme.colors.white});
-	border: 16px solid rgba(${(props) => props.theme.colors.white}, 0.52);
+	// border: 16px solid rgba(${(props) => props.theme.colors.white}, 0.52);
+	border: 16px solid rgba(0, 0, 0, 0.52);
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
 	border-radius: 1rem;
