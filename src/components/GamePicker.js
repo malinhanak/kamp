@@ -10,38 +10,42 @@ import { push } from 'connected-react-router';
 const Picker = styled(motion.div)`
 	border: 1px solid ${(props) => props.theme.colors.primary};
 	border-radius: 20px;
-	width: 100%;
+	width: 90%;
 	padding: 0.5rem 1.5rem;
 	display: flex;
 	justify-content: space-between;
 	position: absolute;
 	bottom: 0;
+	margin: 0 auto;
 `;
 
 const Selections = styled(motion.div)`
 	background-color: rgb(${(props) => props.theme.colors.white});
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	border-radius: 10px;
-	width: 100%;
+	width: 90%;
 	min-height: 150px;
 	padding: 0.5rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	margin-bottom: 0.5rem;
+	margin: 0 auto 0.5rem;
 	position: absolute;
 	bottom: 50px;
 `;
 
 const Wrapper = styled.section`
 	width: 100%;
-	position: relative;
+	position: fixed;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	align-items: center;
+	justify-content: flex-end;
 	min-height: 180px;
 	margin-top: 1rem;
+	bottom: 1rem;
+	left: 0;
 `;
 
 export function GamePicker({ gameSelection }) {
@@ -92,7 +96,7 @@ export function GamePicker({ gameSelection }) {
 
 	return (
 		<AnimatePresence>
-			<Wrapper>
+			<Wrapper id="game-picker">
 				{isOpen && (
 					<Selections variants={dropdownVariant} initial="exit" animate="initial" exit="exit">
 						{games}
