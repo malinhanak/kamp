@@ -7,6 +7,5 @@ export const MainContainer = styled(motion.section)`
 	justify-content: flex-start;
 	align-items: flex-start;
 	width: 100%;
-	height: 50vh;
-	max-height: 55vh;
+	height: 100%;
 `;
