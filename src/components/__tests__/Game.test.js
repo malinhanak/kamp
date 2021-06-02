@@ -35,9 +35,7 @@ describe('Game component', () => {
 
 		render(<Game />, { initialState: initialState });
 
-		const titleElement = await screen.findByText(/Tvehögakampen/);
 		const infoElement = await screen.findByText(/informations pärm/);
-		expect(titleElement).toBeInTheDocument();
 		expect(infoElement).toBeInTheDocument();
 	});
 });
