@@ -19,7 +19,7 @@ const MainContainer = styled(motion.section)`
 	align-items: flex-start;
 	width: 90%;
 	height: 100%;
-	overflow-y: auto;
+	overflow-y: scroll;
 	background-color: rgb(${(props) => props.theme.colors.white});
 	border: 16px solid rgba(${(props) => props.theme.colors.white}, 0.52);
 	-webkit-background-clip: padding-box;
