@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import { useLocation } from 'react-router';
 import styled from 'styled-components';
-import { drawerContext } from 'utils/providers/drawerProvider';
+import { uiControlContext } from 'utils/providers/uiControlProvider';
 import { Menu } from 'react-feather';
 
 const Base = styled(motion.div)`
@@ -23,7 +23,7 @@ const Base = styled(motion.div)`
 `;
 
 export const MenuIcon = () => {
-	const { openDrawer } = useContext(drawerContext);
+	const { openDrawer } = useContext(uiControlContext);
 	const location = useLocation();
 
 	const isVisible =

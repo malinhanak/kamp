@@ -16,6 +16,7 @@ import {
 } from './ui-components/Typography';
 import htmr from 'htmr';
 import { GamePicker } from './GamePicker';
+import { memo } from 'react';
 
 export function Game() {
 	let { gameId } = useParams();
@@ -132,4 +133,4 @@ export function Game() {
 		</>
 	);
 }
-export default withRouter(UserIsAuthenticated(Game));
+export default withRouter(UserIsAuthenticated(memo(Game)));

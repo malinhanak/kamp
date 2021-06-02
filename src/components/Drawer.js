@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { X } from 'react-feather';
 import '@fontsource/roboto-condensed';
 import { useContext, useRef } from 'react';
-import { drawerContext } from 'utils/providers/drawerProvider';
+import { uiControlContext } from 'utils/providers/uiControlProvider';
 import { AnimatePresence, motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import { useClickAway } from 'react-use';
@@ -31,7 +31,7 @@ const DrawerContent = styled.section`
 	flex-direction: column;
 `;
 
-const DrawerClose = styled.div`
+export const DrawerClose = styled.div`
 	background: rgba(${(props) => props.theme.colors.greensSoft}, 0.39);
 	width: 40px;
 	height: 40px;
@@ -66,16 +66,16 @@ export const DrawerLink = styled(NavLink)`
 	text-decoration: none;
 `;
 
-const Closer = ({ classname, icon, action }) => {
+export const Closer = ({ classname, action }) => {
 	return (
 		<DrawerClose className={classname} onClick={() => action()}>
-			{icon}
+			<X size={24} strokeWidth={1.5} />
 		</DrawerClose>
 	);
 };
 
 function Drawer({ children }) {
-	const { isDrawerOpen, closeDrawer } = useContext(drawerContext);
+	const { isDrawerOpen, closeDrawer } = useContext(uiControlContext);
 
 	const ref = useRef(null);
 	useClickAway(ref, () => closeDrawer());
@@ -93,7 +93,7 @@ function Drawer({ children }) {
 				>
 					<DrawerContent>
 						<DrawerTitle>Navigation</DrawerTitle>
-						<Closer icon={<X size={24} strokeWidth={1.5} />} action={closeDrawer} />
+						<Closer action={closeDrawer} />
 						{children}
 					</DrawerContent>
 				</DrawerWrapper>

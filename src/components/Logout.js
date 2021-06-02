@@ -5,7 +5,7 @@ import { auth as authSelector } from 'store/selectors/auth';
 import styled from 'styled-components';
 import '@fontsource/roboto-mono/700.css';
 import { useContext } from 'react';
-import { drawerContext } from 'utils/providers/drawerProvider';
+import { uiControlContext } from 'utils/providers/uiControlProvider';
 
 const LogoutBtn = styled.button`
 	background: transparent;
@@ -19,7 +19,7 @@ const LogoutBtn = styled.button`
 `;
 
 function Logout() {
-	const { closeDrawer } = useContext(drawerContext);
+	const { closeDrawer } = useContext(uiControlContext);
 	const auth = useSelector(authSelector);
 	const history = useHistory();
 	const firebase = useFirebase();

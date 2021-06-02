@@ -1,12 +1,13 @@
-import { useRouteMatch, withRouter } from 'react-router';
+import { withRouter } from 'react-router';
 import { AnimatePresence, motion } from 'framer-motion';
 import styled from 'styled-components';
 import { ChevronDown } from 'react-feather';
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState, memo, useCallback } from 'react';
 import { Paragraph, Typography } from './ui-components/Typography';
 import { useDispatch } from 'react-redux';
-import { push } from 'connected-react-router';
 import { useClickAway } from 'react-use';
+import { uiControlContext } from 'utils/providers/uiControlProvider';
+import GameModal from './GameModal';
 
 const Picker = styled(motion.div)`
 	border: 1px solid ${(props) => props.theme.colors.primary};
@@ -50,8 +51,8 @@ const Wrapper = styled.section`
 `;
 
 export function GamePicker({ gameSelection }) {
+	const { isModalOpen, openModal } = useContext(uiControlContext);
 	const [isOpen, setIsOpen] = useState(false);
-	const match = useRouteMatch();
 	const dispatch = useDispatch();
 	const ref = useRef(null);
 
@@ -102,11 +103,19 @@ export function GamePicker({ gameSelection }) {
 		},
 	};
 
+	const setSelectedGameTriggerModal = useCallback(
+		(selectedGame) => {
+			dispatch({ type: 'SELECTED_GAME', payload: selectedGame });
+			openModal();
+		},
+		[dispatch, openModal],
+	);
+
 	const games = gameSelection?.map((game) => {
 		return (
 			<Typography
 				as={Paragraph}
-				onClick={() => dispatch(push(`${match.url}/${game.toLowerCase()}`))}
+				onClick={() => setSelectedGameTriggerModal(game)}
 				key={game}
 				margin="0.7rem 0 0.7rem 0.7rem"
 				align="left"
@@ -117,25 +126,29 @@ export function GamePicker({ gameSelection }) {
 	});
 
 	return (
-		<AnimatePresence>
-			<Wrapper ref={ref} id="game-picker">
-				{isOpen && (
-					<Selections variants={dropdownVariant} initial="exit" animate="initial" exit="exit">
-						{games}
-					</Selections>
-				)}
-				<Picker onTap={onTap}>
-					välj tävlingsgren
-					<motion.span
-						variants={iconVariant}
-						animate={isOpen ? 'animate' : 'exit'}
-						style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-					>
-						<ChevronDown size={24} strokeWidth={1.5} />
-					</motion.span>
-				</Picker>
-			</Wrapper>
-		</AnimatePresence>
+		<>
+			<AnimatePresence>
+				<Wrapper ref={ref} id="game-picker">
+					{isOpen && (
+						<Selections variants={dropdownVariant} initial="exit" animate="initial" exit="exit">
+							{games}
+						</Selections>
+					)}
+					<Picker onTap={onTap}>
+						välj tävlingsgren
+						<motion.span
+							variants={iconVariant}
+							animate={isOpen ? 'animate' : 'exit'}
+							style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+						>
+							<ChevronDown size={24} strokeWidth={1.5} />
+						</motion.span>
+					</Picker>
+				</Wrapper>
+			</AnimatePresence>
+			{/* TODO: Optimize Modal Presence state for animation and rendering */}
+			<GameModal />
+		</>
 	);
 }
-export default withRouter(GamePicker);
+export default withRouter(memo(GamePicker));
