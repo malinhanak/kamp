@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.section`
 	width: 100%;
-	height: calc(75% - 200px);
+	height: calc(95% - 200px);
 	margin-top: 150px;
 	display: flex;
 	flex-direction: column;
@@ -15,7 +15,7 @@ const Wrapper = styled.section`
 const MainContainer = styled(motion.section)`
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: flex-start;
 	width: 90%;
 	height: 100%;
