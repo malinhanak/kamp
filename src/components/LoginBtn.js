@@ -4,6 +4,7 @@ import { auth as authSelector } from 'store/selectors/auth';
 import '@fontsource/roboto-mono/700.css';
 import { useContext } from 'react';
 import { DrawerLink } from './Drawer';
+import { uiControlContext } from 'utils/providers/uiControlProvider';
 
 function Login() {
 	const { closeDrawer } = useContext(uiControlContext);

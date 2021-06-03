@@ -125,6 +125,24 @@ export function GamePicker({ gameSelection }) {
 		);
 	});
 
+	const wrapperVariant = {
+		initial: {
+			y: '200vh',
+		},
+		animate: {
+			y: 0,
+			transition: {
+				duration: 0.5,
+			},
+		},
+		exit: {
+			y: '200vh',
+			transition: {
+				duration: 0.5,
+			},
+		},
+	};
+
 	return (
 		<>
 			<AnimatePresence>
@@ -144,10 +162,10 @@ export function GamePicker({ gameSelection }) {
 							<ChevronDown size={24} strokeWidth={1.5} />
 						</motion.span>
 					</Picker>
+					{/* TODO: Optimize Modal Presence state for animation and rendering */}
+					{isModalOpen && <GameModal />}
 				</Wrapper>
 			</AnimatePresence>
-			{/* TODO: Optimize Modal Presence state for animation and rendering */}
-			<GameModal />
 		</>
 	);
 }
