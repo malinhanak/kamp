@@ -7,23 +7,33 @@ import Modal from './ui-components/Modal';
 import ThreeDotsWave from './ui-components/SmallLoader';
 import { TransformParagraph } from './ui-components/Typography';
 import htmr from 'htmr';
+import styled from 'styled-components';
+
+const RuleContainer = styled.section`
+	flex: 1 1 85%;
+	overflow-y: scroll;
+`;
+const PointsContainer = styled.section`
+	flex: 1 1 15%;
+`;
 
 function GameModal() {
+	// const firebase = useFirebase();
+	const title = useSelector((state) => state.app.selectedGame) || '';
 	const { closeModal } = useContext(uiControlContext);
 	const dispatch = useDispatch();
-	const title = useSelector((state) => state.app.selectedGame) || '';
+	useFirestoreConnect([{ collection: 'rules', doc: title.toLowerCase() }]);
 
 	const unSetSelectedGame = () => {
 		dispatch({ type: 'SELECTED_GAME', payload: null });
 		closeModal();
 	};
 
-	useFirestoreConnect([
-		{
-			collection: 'rules',
-			doc: title.toLowerCase(),
-		},
-	]);
+	// const registerPoints = () => {
+	// 	return firebase.push(title.toLowerCase(), { some: 'data' }).then(() => {
+	// 		console.log('done');
+	// 	});
+	// };
 
 	const rules = useSelector((state) => state.firestore.ordered.rules);
 
@@ -42,12 +52,13 @@ function GameModal() {
 				</Message>
 			);
 
-		return htmr(rules[0].rules, { transform });
+		return <RuleContainer>{htmr(rules[0].rules, { transform })}</RuleContainer>;
 	};
 
 	return (
 		<Modal title={title} action={unSetSelectedGame}>
 			{renderRules()}
+			<PointsContainer>point section</PointsContainer>
 		</Modal>
 	);
 }

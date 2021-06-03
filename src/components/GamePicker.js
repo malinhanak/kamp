@@ -58,7 +58,7 @@ export function GamePicker({ gameSelection }) {
 
 	useClickAway(ref, () => setIsOpen(false));
 
-	const onTap = (event, info) => setIsOpen(!isOpen);
+	const onTap = () => setIsOpen(!isOpen);
 
 	const dropdownVariant = {
 		initial: {
@@ -124,24 +124,6 @@ export function GamePicker({ gameSelection }) {
 			</Typography>
 		);
 	});
-
-	const wrapperVariant = {
-		initial: {
-			y: '200vh',
-		},
-		animate: {
-			y: 0,
-			transition: {
-				duration: 0.5,
-			},
-		},
-		exit: {
-			y: '200vh',
-			transition: {
-				duration: 0.5,
-			},
-		},
-	};
 
 	return (
 		<>
