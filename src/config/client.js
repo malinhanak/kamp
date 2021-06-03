@@ -21,10 +21,16 @@ const config = {
 };
 
 firebase.initializeApp(config.firebase);
+
+const auth = firebase.auth;
 const db = firebase.firestore();
-if (window.location.hostname === 'localhost') {
+
+// eslint-disable-next-line no-restricted-globals
+if (location.hostname === 'localhost' || process.env.NODE_ENV === 'development') {
 	db.useEmulator('localhost', 8080);
+	auth().useEmulator('http://localhost:9099/', { disableWarnings: true });
 }
 
 export const { reduxFirebase } = config;
-export default db;
+// eslint-disable-next-line import/no-anonymous-default-export
+export default { db, auth };
