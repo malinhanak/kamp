@@ -15,6 +15,7 @@
 		"dom-testing-library": "^5.0.0",
 		"dotenv": "^8.2.0",
 		"firebase": "^8.4.2",
+		"firebase-tools": "9.12.1",
 		"framer-motion": "^4.1.17",
 		"history": "4.10.1",
 		"htmr": "^1.0.0",

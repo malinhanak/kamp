@@ -21,7 +21,10 @@ const config = {
 };
 
 firebase.initializeApp(config.firebase);
-firebase.firestore();
+const db = firebase.firestore();
+if (window.location.hostname === 'localhost') {
+	db.useEmulator('localhost', 8080);
+}
 
 export const { reduxFirebase } = config;
-export default firebase;
+export default db;

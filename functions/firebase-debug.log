@@ -1,0 +1,132 @@
+[debug] [2021-06-03T11:25:20.954Z] ----------------------------------------------------------------------
+[debug] [2021-06-03T11:25:20.955Z] Command:       /usr/local/bin/firebase /Users/malinhanak/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase emulators:start
+[debug] [2021-06-03T11:25:20.955Z] CLI Version:   9.10.2
+[debug] [2021-06-03T11:25:20.955Z] Platform:      darwin
+[debug] [2021-06-03T11:25:20.955Z] Node Version:  v12.18.1
+[debug] [2021-06-03T11:25:20.956Z] Time:          Thu Jun 03 2021 13:25:20 GMT+0200 (GMT+02:00)
+[debug] [2021-06-03T11:25:20.956Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-06-03T11:25:20.961Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-03T11:25:20.961Z] > authorizing via signed-in user (malin.hanak@cygni.se)
+[info] i  emulators: Starting emulators: auth, functions, firestore, database, hosting, pubsub {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, database, hosting, pubsub"}}
+[debug] [2021-06-03T11:25:21.006Z] [hub] writing locator at /var/folders/_n/vn49bl0s3w7gmjr3zr2rj2280000gn/T/hub-kamp-b928e.json
+[info] ✔  functions: Using node@12 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@12 from host."}}
+[debug] [2021-06-03T11:25:21.021Z] defaultcredentials: writing to file /Users/malinhanak/.config/firebase/malin_hanak_cygni.se_application_default_credentials.json
+[debug] [2021-06-03T11:25:21.023Z] Setting GAC to /Users/malinhanak/.config/firebase/malin_hanak_cygni.se_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/malinhanak/.config/firebase/malin_hanak_cygni.se_application_default_credentials.json"}}
+[debug] [2021-06-03T11:25:21.024Z] > refreshing access token with scopes: []
+[debug] [2021-06-03T11:25:21.025Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-06-03T11:25:21.155Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Thu, 03 Jun 2021 11:25:21 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-03T11:25:21.203Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kamp-b928e/adminSdkConfig [none]
+[debug] [2021-06-03T11:25:21.735Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kamp-b928e/adminSdkConfig 200
+[debug] [2021-06-03T11:25:21.735Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kamp-b928e/adminSdkConfig {"projectId":"kamp-b928e","databaseURL":"https://kamp-b928e-default-rtdb.europe-west1.firebasedatabase.app","storageBucket":"kamp-b928e.appspot.com","locationId":"europe-west"}
+[debug] [2021-06-03T11:25:22.026Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2021-06-03T11:25:22.026Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-06-03T11:25:22.026Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/Users/malinhanak/.cache/firebase/emulators/cloud-firestore-emulator-v1.11.15.jar","--host","localhost","--port",8080,"--rules","/Users/malinhanak/Repos/kamp/firestore.rules","--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/Users/malinhanak/.cache/firebase/emulators/cloud-firestore-emulator-v1.11.15.jar\",\"--host\",\"localhost\",\"--port\",8080,\"--rules\",\"/Users/malinhanak/Repos/kamp/firestore.rules\",\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2021-06-03T11:25:25.274Z] Jun 03, 2021 1:25:25 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://localhost:64323
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 03, 2021 1:25:25 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\nINFO: Started WebSocket server on ws://localhost:64323\n"}}
+[debug] [2021-06-03T11:25:25.322Z] API endpoint: http:// {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://"}}
+[debug] [2021-06-03T11:25:25.322Z] localhost:8080
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:8080
+
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"localhost:8080\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\n\n   export FIRESTORE_EMULATOR_HOST=localhost:8080\n\nDev App Server is now running.\n\n"}}
+[debug] [2021-06-03T11:25:25.362Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kamp-b928e [none]
+[debug] [2021-06-03T11:25:25.548Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kamp-b928e 200
+[debug] [2021-06-03T11:25:25.548Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kamp-b928e {"projectId":"kamp-b928e","projectNumber":"50441744476","displayName":"kamp","name":"projects/kamp-b928e","resources":{"hostingSite":"kamp-b928e","realtimeDatabaseInstance":"kamp-b928e-default-rtdb","storageBucket":"kamp-b928e.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
+[debug] [2021-06-03T11:25:25.549Z] database rules config:  []
+[warn] ⚠  database: Did not find a Realtime Database rules file specified in a firebase.json config file. The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration. {"metadata":{"emulator":{"name":"database"},"message":"Did not find a Realtime Database rules file specified in a firebase.json config file. The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration."}}
+[debug] [2021-06-03T11:25:25.550Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2021-06-03T11:25:25.550Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-06-03T11:25:25.550Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2021-06-03T11:25:25.550Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","/Users/malinhanak/.cache/firebase/emulators/firebase-database-emulator-v4.7.2.jar","--host","localhost","--port",9000,"--functions_emulator_host","localhost","--functions_emulator_port",5001],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"/Users/malinhanak/.cache/firebase/emulators/firebase-database-emulator-v4.7.2.jar\",\"--host\",\"localhost\",\"--port\",9000,\"--functions_emulator_host\",\"localhost\",\"--functions_emulator_port\",5001],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
+[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
+[debug] [2021-06-03T11:25:27.067Z] 13:25:27.065 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+ {"metadata":{"emulator":{"name":"database"},"message":"13:25:27.065 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\n"}}
+[debug] [2021-06-03T11:25:27.230Z] 13:25:27.229 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
+ {"metadata":{"emulator":{"name":"database"},"message":"13:25:27.229 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000\n"}}
+[debug] [2021-06-03T11:25:29.327Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2021-06-03T11:25:29.327Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-06-03T11:25:29.327Z] Starting Pub/Sub Emulator with command {"binary":"/Users/malinhanak/.cache/firebase/emulators/pubsub-emulator-0.1.0/pubsub-emulator/bin/cloud-pubsub-emulator","args":["--host=localhost","--port=8085"],"optionalArgs":["port","host"],"joinArgs":true} {"metadata":{"emulator":{"name":"pubsub"},"message":"Starting Pub/Sub Emulator with command {\"binary\":\"/Users/malinhanak/.cache/firebase/emulators/pubsub-emulator-0.1.0/pubsub-emulator/bin/cloud-pubsub-emulator\",\"args\":[\"--host=localhost\",\"--port=8085\"],\"optionalArgs\":[\"port\",\"host\"],\"joinArgs\":true}"}}
+[info] i  pubsub: Pub/Sub Emulator logging to pubsub-debug.log {"metadata":{"emulator":{"name":"pubsub"},"message":"Pub/Sub Emulator logging to \u001b[1mpubsub-debug.log\u001b[22m"}}
+[debug] [2021-06-03T11:25:29.618Z] This is the Google Pub/Sub fake.
+Implementation may be incomplete or differ from the real system.
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"This is the Google Pub/Sub fake.\nImplementation may be incomplete or differ from the real system.\n"}}
+[debug] [2021-06-03T11:25:29.640Z] jun 03, 2021 1:25:29 EM com.google.cloud.pubsub.testing.v1.Main main
+INFO: IAM integration is disabled. IAM policy methods and ACL checks are not supported
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"jun 03, 2021 1:25:29 EM com.google.cloud.pubsub.testing.v1.Main main\nINFO: IAM integration is disabled. IAM policy methods and ACL checks are not supported\n"}}
+[debug] [2021-06-03T11:25:29.941Z] jun 03, 2021 1:25:29 EM io.gapi.emulators.netty.NettyUtil applyJava7LongHostnameWorkaround
+INFO: Unable to apply Java 7 long hostname workaround.
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"jun 03, 2021 1:25:29 EM io.gapi.emulators.netty.NettyUtil applyJava7LongHostnameWorkaround\nINFO: Unable to apply Java 7 long hostname workaround.\n"}}
+[debug] [2021-06-03T11:25:30.005Z] jun 03, 2021 1:25:30 EM com.google.cloud.pubsub.testing.v1.Main main
+INFO: Server started, listening on 8085
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"jun 03, 2021 1:25:30 EM com.google.cloud.pubsub.testing.v1.Main main\nINFO: Server started, listening on 8085\n"}}
+[debug] [2021-06-03T11:25:30.107Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/kamp-b928e/sites 
+[debug] [2021-06-03T11:25:30.175Z] jun 03, 2021 1:25:30 EM io.gapi.emulators.grpc.GrpcServer$3 operationComplete
+INFO: Adding handler(s) to newly registered Channel.
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"jun 03, 2021 1:25:30 EM io.gapi.emulators.grpc.GrpcServer$3 operationComplete\nINFO: Adding handler(s) to newly registered Channel.\n"}}
+[debug] [2021-06-03T11:25:31.030Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/kamp-b928e/sites 200
+[debug] [2021-06-03T11:25:31.031Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/kamp-b928e/sites {"sites":[{"name":"projects/50441744476/sites/kamp-b928e","defaultUrl":"https://kamp-b928e.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2021-06-03T11:25:31.031Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kamp-b928e/webApps/-/config [none]
+[debug] [2021-06-03T11:25:31.918Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kamp-b928e/webApps/-/config 200
+[debug] [2021-06-03T11:25:31.918Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kamp-b928e/webApps/-/config {"projectId":"kamp-b928e","appId":"1:50441744476:web:5612e9021c72e9dd2db699","databaseURL":"https://kamp-b928e-default-rtdb.europe-west1.firebasedatabase.app","storageBucket":"kamp-b928e.appspot.com","locationId":"europe-west","apiKey":"AIzaSyCUJbEkDpGmk7Z1IcdJNGTJKZJk4SPm-eo","authDomain":"kamp-b928e.firebaseapp.com","messagingSenderId":"50441744476","measurementId":"G-5N5XXCQ8FT"}
+[info] i  hosting: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] ✔  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[debug] [2021-06-03T11:25:32.481Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-06-03T11:25:32.481Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2021-06-03T11:25:32.481Z] Starting Emulator UI with command {"binary":"node","args":["/Users/malinhanak/.cache/firebase/emulators/ui-v1.4.2/server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/malinhanak/.cache/firebase/emulators/ui-v1.4.2/server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2021-06-03T11:25:32.654Z] Web / API server started at http://localhost:1337
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at http://localhost:1337\n"}}
+[info] i  functions: Watching "/Users/malinhanak/Repos/kamp/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/malinhanak/Repos/kamp/functions\" for Cloud Functions..."}}
+[debug] [2021-06-03T11:25:32.760Z] [worker-pool] addWorker(~diagnostic~) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(~diagnostic~)"}}
+[debug] [2021-06-03T11:25:32.761Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key ~diagnostic~, total=1"}}
+[debug] [2021-06-03T11:25:32.762Z] [worker-pool] submitWork(triggerId=) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=)"}}
+[debug] [2021-06-03T11:25:32.762Z] [worker-~diagnostic~-abedf585-5023-4dca-b739-8717c550f5b5]: Assigning socketPath: /var/folders/_n/vn49bl0s3w7gmjr3zr2rj2280000gn/T/fire_emu_16028.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-abedf585-5023-4dca-b739-8717c550f5b5]: Assigning socketPath: /var/folders/_n/vn49bl0s3w7gmjr3zr2rj2280000gn/T/fire_emu_16028.sock"}}
+[debug] [2021-06-03T11:25:32.762Z] [worker-~diagnostic~-abedf585-5023-4dca-b739-8717c550f5b5]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-abedf585-5023-4dca-b739-8717c550f5b5]: BUSY"}}
+[debug] [2021-06-03T11:25:32.966Z] [runtime-status] [16028] Functions runtime initialized. {"cwd":"/Users/malinhanak/Repos/kamp/functions","node_version":"12.18.1"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] Functions runtime initialized. {\"cwd\":\"/Users/malinhanak/Repos/kamp/functions\",\"node_version\":\"12.18.1\"}"}}
+[debug] [2021-06-03T11:25:32.967Z] [runtime-status] [16028] Disabled runtime features: undefined {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] Disabled runtime features: undefined"}}
+[debug] [2021-06-03T11:25:32.968Z] [runtime-status] [16028] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.9.0","resolution":"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"9.9.0\",\"resolution\":\"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2021-06-03T11:25:32.969Z] [runtime-status] [16028] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.14.1\",\"resolution\":\"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2021-06-03T11:25:32.970Z] [runtime-status] [16028] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.14.1\",\"resolution\":\"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2021-06-03T11:25:32.970Z] [runtime-status] [16028] Set PUBSUB_EMULATOR_HOST to localhost:8085 {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] Set PUBSUB_EMULATOR_HOST to localhost:8085"}}
+[debug] [2021-06-03T11:25:32.971Z] [runtime-status] [16028] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2021-06-03T11:25:32.971Z] [runtime-status] [16028] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.14.1\",\"resolution\":\"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2021-06-03T11:25:32.997Z] [runtime-status] [16028] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] Checked functions.config() {\"config\":{}}"}}
+[debug] [2021-06-03T11:25:32.997Z] [runtime-status] [16028] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.14.1","resolution":"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-functions/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.14.1\",\"resolution\":\"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-functions/lib/index.js\"}}"}}
+[debug] [2021-06-03T11:25:32.997Z] [runtime-status] [16028] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.14.1\",\"resolution\":\"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2021-06-03T11:25:32.998Z] [runtime-status] [16028] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.9.0","resolution":"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"9.9.0\",\"resolution\":\"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2021-06-03T11:25:32.998Z] [runtime-status] [16028] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.14.1\",\"resolution\":\"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2021-06-03T11:25:32.998Z] [runtime-status] [16028] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.9.0","resolution":"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [16028] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"9.9.0\",\"resolution\":\"/Users/malinhanak/Repos/kamp/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:1337                │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ localhost:9099 │ http://localhost:1337/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Functions      │ localhost:5001 │ http://localhost:1337/functions │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ localhost:8080 │ http://localhost:1337/firestore │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Database       │ localhost:9000 │ http://localhost:1337/database  │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Hosting        │ localhost:5000 │ n/a                             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Pub/Sub        │ localhost:8085 │ n/a                             │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2021-06-03T11:25:33.002Z] [worker-~diagnostic~-abedf585-5023-4dca-b739-8717c550f5b5]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-abedf585-5023-4dca-b739-8717c550f5b5]: IDLE"}}
