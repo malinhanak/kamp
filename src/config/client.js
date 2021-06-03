@@ -21,6 +21,8 @@ const config = {
 };
 
 firebase.initializeApp(config.firebase);
+firebase.firestore();
+firebase.setLogLevel('silent');
 
 const auth = firebase.auth;
 const db = firebase.firestore();
