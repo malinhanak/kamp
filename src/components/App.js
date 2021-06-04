@@ -6,10 +6,10 @@ import Drawer from './Drawer';
 import DrawerLinks from './DrawerLinks';
 import { ContentWrapper } from 'styles/ContentWrapper';
 import LoginPage from './Login';
-import Games from './GamesList';
+import Games from 'components/game/GamesList';
 import Start from './Start';
 import { About } from './About';
-import Game from './Game';
+import Game from 'components/game/Game';
 
 function App() {
 	const location = useLocation();

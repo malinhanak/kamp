@@ -3,11 +3,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 import styled from 'styled-components';
 import { ChevronDown } from 'react-feather';
 import { useContext, useRef, useState, memo, useCallback } from 'react';
-import { Paragraph, Typography } from './ui-components/Typography';
+import { Paragraph, Typography } from 'components/ui-components/Typography';
 import { useDispatch } from 'react-redux';
 import { useClickAway } from 'react-use';
 import { uiControlContext } from 'utils/providers/uiControlProvider';
-import GameModal from './GameModal';
+import GameModal from 'components/game/GameModal';
 
 const Picker = styled(motion.div)`
 	border: 1px solid ${(props) => props.theme.colors.primary};
