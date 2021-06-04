@@ -35,4 +35,5 @@ if (location.hostname === 'localhost' || process.env.NODE_ENV === 'development')
 
 export const { reduxFirebase } = config;
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { db, auth };
+// export default { db, auth };
+export default firebase;
