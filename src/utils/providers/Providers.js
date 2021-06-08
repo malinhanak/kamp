@@ -7,6 +7,7 @@ import { kampTheme } from 'styles/kampTheme';
 import UiControlProvider from './uiControlProvider';
 import { createFirestoreInstance } from 'redux-firestore';
 import fbConfig, { reduxFirebase } from 'config/client';
+import { ToastProvider } from 'react-toast-notifications';
 
 const { store, history } = configureStore();
 
@@ -22,9 +23,11 @@ const Providers = ({ children }) => {
 		<Provider store={store}>
 			<ConnectedRouter history={history}>
 				<ReactReduxFirebaseProvider {...rrfProps}>
-					<UiControlProvider>
-						<ThemeProvider theme={kampTheme}>{children}</ThemeProvider>
-					</UiControlProvider>
+					<ToastProvider autoDismiss={true}>
+						<UiControlProvider>
+							<ThemeProvider theme={kampTheme}>{children}</ThemeProvider>
+						</UiControlProvider>
+					</ToastProvider>
 				</ReactReduxFirebaseProvider>
 			</ConnectedRouter>
 		</Provider>

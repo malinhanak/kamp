@@ -2,12 +2,12 @@ import { isEmpty, isLoaded, useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router';
 import { auth as authSelector } from 'store/selectors/auth';
-import { UserIsAuthenticated } from '../utils/HOC/ProtectedRoute';
-import { PageTitle } from './ui-components/PageTitle';
-import { Message } from './ui-components/Message';
-import { Typography, GamesLinkText } from './ui-components/Typography';
+import { UserIsAuthenticated } from 'utils/HOC/ProtectedRoute';
+import { PageTitle } from 'components/ui-components/PageTitle';
+import { Message } from 'components/ui-components/Message';
+import { Typography, GamesLinkText } from 'components/ui-components/Typography';
 import { GamesContainer, GameItem } from 'components/ui-components/GameItem';
-import ThreeDotsWave from './ui-components/SmallLoader';
+import ThreeDotsWave from 'components/ui-components/SmallLoader';
 
 export function Games() {
 	const auth = useSelector(authSelector);

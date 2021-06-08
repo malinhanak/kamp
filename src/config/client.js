@@ -4,7 +4,7 @@ import 'firebase/auth';
 
 const config = {
 	firebase: {
-		apiKey: 'AIzaSyCUJbEkDpGmk7Z1IcdJNGTJKZJk4SPm-eo',
+		apiKey: process.env.REACT_APP_API_KEY,
 		authDomain: 'kamp-b928e.firebaseapp.com',
 		projectId: 'kamp-b928e',
 		storageBucket: 'kamp-b928e.appspot.com',
@@ -22,6 +22,18 @@ const config = {
 
 firebase.initializeApp(config.firebase);
 firebase.firestore();
+firebase.setLogLevel('silent');
+
+const auth = firebase.auth;
+export const db = firebase.firestore();
+
+// eslint-disable-next-line no-restricted-globals
+if (location.hostname === 'localhost' || process.env.NODE_ENV === 'development') {
+	db.useEmulator('localhost', 8080);
+	auth().useEmulator('http://localhost:9099/', { disableWarnings: true });
+}
 
 export const { reduxFirebase } = config;
+// eslint-disable-next-line import/no-anonymous-default-export
+// export default { db, auth };
 export default firebase;

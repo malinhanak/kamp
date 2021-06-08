@@ -1,21 +1,21 @@
 import { isEmpty, isLoaded, useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
 import { useParams, withRouter } from 'react-router';
-import { UserIsAuthenticated } from '../utils/HOC/ProtectedRoute';
-import { PageTitle } from './ui-components/PageTitle';
-import { Message } from './ui-components/Message';
-import ThreeDotsWave from './ui-components/SmallLoader';
+import { UserIsAuthenticated } from 'utils/HOC/ProtectedRoute';
+import { PageTitle } from 'components/ui-components/PageTitle';
+import { Message } from 'components/ui-components/Message';
+import ThreeDotsWave from 'components/ui-components/SmallLoader';
 import { Link } from 'react-router-dom';
-import { MainContainer } from './ui-components/MainContainer';
+import { MainContainer } from 'components/ui-components/MainContainer';
 import {
 	Typography,
 	HeadingSix,
 	TransformParagraph,
 	HeadingFour,
 	Paragraph,
-} from './ui-components/Typography';
+} from 'components/ui-components/Typography';
 import htmr from 'htmr';
-import { GamePicker } from './GamePicker';
+import { GamePicker } from 'components/game/GamePicker';
 import { memo } from 'react';
 
 export function Game() {
@@ -129,7 +129,11 @@ export function Game() {
 				</Typography>
 				{renderTeams()}
 			</MainContainer>
-			<GamePicker gameSelection={!isEmpty(info) ? info[0].games : null} />
+			<GamePicker
+				gameSelection={!isEmpty(info) ? info[0].games : null}
+				isPointsHidden={game[0].hide_points}
+				ownerId={game[0].ownerId}
+			/>
 		</>
 	);
 }

@@ -6,6 +6,7 @@ import 'firebase/firestore';
 
 export const initialState = {
 	selectedGame: null,
+	gameInputValue: '0',
 };
 
 const app = (state = initialState, action) => {
@@ -14,6 +15,12 @@ const app = (state = initialState, action) => {
 			return {
 				...state,
 				selectedGame: action.payload,
+			};
+
+		case 'ADD_POINTS':
+			return {
+				...state,
+				gameInputValue: action.payload,
 			};
 		default:
 			return state;
