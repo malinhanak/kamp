@@ -1,5 +1,5 @@
 import React from 'react';
-import { Game } from 'components/Game';
+import { Game } from 'components/game/Game';
 import { render, screen } from 'config/test-utils';
 import { useSelector } from 'react-redux';
 import { initialState } from 'store/reducer';
@@ -35,9 +35,7 @@ describe('Game component', () => {
 
 		render(<Game />, { initialState: initialState });
 
-		const titleElement = await screen.findByText(/Tvehögakampen/);
 		const infoElement = await screen.findByText(/informations pärm/);
-		expect(titleElement).toBeInTheDocument();
 		expect(infoElement).toBeInTheDocument();
 	});
 });

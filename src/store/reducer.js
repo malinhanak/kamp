@@ -5,15 +5,22 @@ import { firestoreReducer } from 'redux-firestore';
 import 'firebase/firestore';
 
 export const initialState = {
-	isNewUser: false,
+	selectedGame: null,
+	gameInputValue: '0',
 };
 
 const app = (state = initialState, action) => {
 	switch (action.type) {
-		case 'IS_NEW_USER':
+		case 'SELECTED_GAME':
 			return {
 				...state,
-				isNewUser: action.payload,
+				selectedGame: action.payload,
+			};
+
+		case 'ADD_POINTS':
+			return {
+				...state,
+				gameInputValue: action.payload,
 			};
 		default:
 			return state;

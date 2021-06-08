@@ -5,10 +5,10 @@ import { auth as authSelector } from 'store/selectors/auth';
 import { useSelector } from 'react-redux';
 import { isEmpty, isLoaded } from 'react-redux-firebase';
 import { useContext } from 'react';
-import { drawerContext } from 'utils/providers/drawerProvider';
+import { uiControlContext } from 'utils/providers/uiControlProvider';
 
 export default function DrawerLinks() {
-	const { closeDrawer } = useContext(drawerContext);
+	const { closeDrawer } = useContext(uiControlContext);
 	const auth = useSelector(authSelector);
 
 	return (

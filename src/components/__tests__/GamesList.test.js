@@ -1,5 +1,5 @@
 import React from 'react';
-import { Games } from 'components/GamesList';
+import { Games } from 'components/game/GamesList';
 import { render, screen } from 'config/test-utils';
 import { useSelector } from 'react-redux';
 import { initialState } from 'store/reducer';

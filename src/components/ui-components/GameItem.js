@@ -44,8 +44,8 @@ export const itemVariant = {
 export const GameItem = ({ classname, children, path, ...rest }) => {
 	const dispatch = useDispatch();
 	return (
-		<Item className={classname} {...rest}>
-			<LinkedItem onClick={() => dispatch(push(path))}>{children}</LinkedItem>
+		<Item className={classname} onClick={() => dispatch(push(path))} {...rest}>
+			<LinkedItem>{children}</LinkedItem>
 		</Item>
 	);
 };

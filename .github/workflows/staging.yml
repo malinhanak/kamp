@@ -6,6 +6,8 @@ on:
     branches: [staging]
 
 jobs:
+  env:
+    REACT_APP_API_KEY: ${{ env.REACT_APP_API_KEY }}
   build:
     runs-on: ubuntu-latest
     defaults:

@@ -3,11 +3,11 @@ import { isEmpty, isLoaded } from 'react-redux-firebase';
 import { auth as authSelector } from 'store/selectors/auth';
 import '@fontsource/roboto-mono/700.css';
 import { useContext } from 'react';
-import { drawerContext } from 'utils/providers/drawerProvider';
 import { DrawerLink } from './Drawer';
+import { uiControlContext } from 'utils/providers/uiControlProvider';
 
 function Login() {
-	const { closeDrawer } = useContext(drawerContext);
+	const { closeDrawer } = useContext(uiControlContext);
 	const auth = useSelector(authSelector);
 
 	return (
