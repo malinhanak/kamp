@@ -129,7 +129,11 @@ export function Game() {
 				</Typography>
 				{renderTeams()}
 			</MainContainer>
-			<GamePicker gameSelection={!isEmpty(info) ? info[0].games : null} />
+			<GamePicker
+				gameSelection={!isEmpty(info) ? info[0].games : null}
+				isPointsHidden={game[0].hide_points}
+				ownerId={game[0].ownerId}
+			/>
 		</>
 	);
 }

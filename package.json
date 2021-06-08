@@ -29,6 +29,7 @@
 		"react-redux-firebase": "^3.10.0",
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "4.0.3",
+		"react-toast-notifications": "^2.4.4",
 		"react-use": "^17.2.4",
 		"redux": "^4.1.0",
 		"redux-auth-wrapper": "^3.0.0",
@@ -47,6 +48,9 @@
 		"prepare": "husky install"
 	},
 	"eslintConfig": {
+		"ignorePatterns": [
+			"functions"
+		],
 		"plugins": [
 			"unused-imports"
 		],

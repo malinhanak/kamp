@@ -25,7 +25,7 @@ firebase.firestore();
 firebase.setLogLevel('silent');
 
 const auth = firebase.auth;
-const db = firebase.firestore();
+export const db = firebase.firestore();
 
 // eslint-disable-next-line no-restricted-globals
 if (location.hostname === 'localhost' || process.env.NODE_ENV === 'development') {
