@@ -12,8 +12,6 @@ jobs:
     defaults:
       run:
         working-directory: ./src
-    env:
-      REACT_APP_API_KEY: ${{ env.REACT_APP_API_KEY }}
     steps:
       - name: Checkout ⭕
         uses: actions/checkout@v2
@@ -25,3 +23,5 @@ jobs:
           yarn
           echo Running tests...
           yarn test
+        env:
+          REACT_APP_API_KEY: ${{ env.REACT_APP_API_KEY }}
