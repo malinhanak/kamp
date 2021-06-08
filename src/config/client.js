@@ -4,7 +4,7 @@ import 'firebase/auth';
 
 const config = {
 	firebase: {
-		apiKey: 'AIzaSyCUJbEkDpGmk7Z1IcdJNGTJKZJk4SPm-eo',
+		apiKey: process.env.REACT_APP_API_KEY,
 		authDomain: 'kamp-b928e.firebaseapp.com',
 		projectId: 'kamp-b928e',
 		storageBucket: 'kamp-b928e.appspot.com',
