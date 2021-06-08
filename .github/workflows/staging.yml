@@ -34,5 +34,6 @@ jobs:
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
         with:
+          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           branch: gh-pages-staging
           folder: ./build
