@@ -25,20 +25,6 @@ const Picker = styled(motion.div)`
 	margin: 0 auto;
 `;
 
-const Selections = styled(motion.div)`
-	background-color: rgb(${(props) => props.theme.colors.white});
-	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-	border-radius: 10px;
-	width: 90%;
-	min-height: 150px;
-	padding: 0.5rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
-	margin: 0 auto 0.5rem;
-`;
-
 const BottomNavigation = styled.section`
 	width: 100%;
 	display: flex;
