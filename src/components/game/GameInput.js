@@ -44,7 +44,6 @@ const PointsBtn = styled.button`
 	border-radius: 0 16px 16px 0;
 	border: none;
 	margin: 0.24rem 0.3rem;
-	margin-left: auto;
 	background-color: ${(props) => props.theme.colors.primary};
 
 	&:disabled {
