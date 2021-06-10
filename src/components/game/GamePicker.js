@@ -92,7 +92,7 @@ export function GamePicker({ gameSelection, isPointsHidden, ownerId }) {
 		return (
 			<Typography
 				as={Paragraph}
-				onClick={(w) => setSelectedGameTriggerModal(e, game)}
+				onClick={(e) => setSelectedGameTriggerModal(e, game)}
 				key={game}
 				margin="0.7rem 0 0.7rem 0.7rem"
 				align="left"
