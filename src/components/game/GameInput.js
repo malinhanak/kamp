@@ -13,6 +13,7 @@ import ThreeDotsWave from 'components/ui-components/SmallLoader';
 
 const PointsInput = styled.input`
 	${sharedCss}
+	width: 40%;
 	padding: 0.8rem;
 	border-radius: 30px;
 	border: none;
@@ -40,6 +41,7 @@ const PointsContainer = styled.section`
 
 const PointsBtn = styled.button`
 	${sharedCss}
+	width: 40%;
 	padding: 0.8rem;
 	border-radius: 0 16px 16px 0;
 	border: none;
