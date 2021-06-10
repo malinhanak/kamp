@@ -42,7 +42,7 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"test:nowatch": "react-scripts test --watchAll=false",
+		"test:nowatch": "react-scripts test ./src/components/__tests__ --watchAll=false",
 		"format": "yarn prettier --write",
 		"eject": "react-scripts eject",
 		"prepare": "husky install"
