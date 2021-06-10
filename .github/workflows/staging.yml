@@ -21,7 +21,7 @@ jobs:
       - name: Install and Test 🔧
         run: |
           yarn
-          yarn test
+          yarn test:nowatch
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
       - name: Building 🏗️
