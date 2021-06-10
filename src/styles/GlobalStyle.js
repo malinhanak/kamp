@@ -21,8 +21,7 @@ export const GlobalStyle = createGlobalStyle`
 		max-height: 400px;
 
 		position: fixed;
-		top: 0;
-		left: 0;
+		inset: 0 auto auto 0;
 		z-index: 12;
 
 		pointer-events: none;
@@ -32,8 +31,7 @@ export const GlobalStyle = createGlobalStyle`
 		height: ${(props) => props.bgHeight || '60vh'};
 		width: 100vw;
 		position: fixed;
-		top: 0;
-		left: 0;
+		inset: 0 auto auto 0;
 		z-index: 1;
 
 		pointer-events: none;

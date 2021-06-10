@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import '@fontsource/roboto-condensed';
 import '@fontsource/poppins';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const textCasing = (casing) => {
 	switch (casing) {
@@ -48,6 +49,12 @@ export const GamesLinkText = styled.h4`
 	text-decoration: none;
 	font-size: 1.2rem;
 	color: rgb(${(props) => props.theme.colors.white});
+`;
+
+export const LinkTypography = styled(Link)`
+	text-decoration: none;
+	font-size: 1.3rem;
+	color: rgb(${(props) => props.theme.colors.primary});
 `;
 
 export const TransformParagraph = styled(Typography)`

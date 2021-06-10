@@ -13,8 +13,7 @@ const DrawerWrapper = styled.aside`
 	height: 100%;
 	filter: drop-shadow(5px 2px 0 rgba(${(props) => props.theme.colors.darkBaseRGB}, 0.36));
 	position: fixed;
-	top: 0;
-	left: 0;
+	inset: 0 auto auto 0;
 	z-index: 120;
 	width: 80%;
 	max-width: 265px;

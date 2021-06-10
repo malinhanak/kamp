@@ -21,8 +21,7 @@ const Container = styled(motion.section)`
 	height: 100vh;
 	width: 100vw;
 	position: fixed;
-	top: 0;
-	right: 0;
+	inset: 0 0 auto auto;
 	z-index: 1;
 	display: flex;
 	align-items: center;

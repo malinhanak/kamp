@@ -13,8 +13,6 @@ const config = {
 		measurementId: 'G-5N5XXCQ8FT',
 	},
 	reduxFirebase: {
-		userProfile: 'users',
-		useFirestoreForProfile: true,
 		enableLogging: false,
 		logErrors: true,
 	},
