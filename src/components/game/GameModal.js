@@ -66,8 +66,6 @@ function GameModal() {
 		return <RuleContainer>{htmr(rules[0].rules, { transform })}</RuleContainer>;
 	};
 
-	console.log(rules);
-
 	return (
 		isModalOpen && (
 			<Modal title={title} action={unSetSelectedGame}>
