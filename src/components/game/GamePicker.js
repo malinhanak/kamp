@@ -80,7 +80,8 @@ export function GamePicker({ gameSelection, isPointsHidden, ownerId }) {
 	};
 
 	const setSelectedGameTriggerModal = useCallback(
-		(selectedGame) => {
+		(e, selectedGame) => {
+			e.preventDefault();
 			dispatch({ type: 'SELECTED_GAME', payload: selectedGame });
 			openModal();
 		},
@@ -91,7 +92,7 @@ export function GamePicker({ gameSelection, isPointsHidden, ownerId }) {
 		return (
 			<Typography
 				as={Paragraph}
-				onClick={() => setSelectedGameTriggerModal(game)}
+				onClick={(w) => setSelectedGameTriggerModal(e, game)}
 				key={game}
 				margin="0.7rem 0 0.7rem 0.7rem"
 				align="left"
@@ -110,7 +111,13 @@ export function GamePicker({ gameSelection, isPointsHidden, ownerId }) {
 							<Sliders size={24} strokeWidth={1.7} color="white" />
 						</RollUpController>
 					)}
-					<Picker onClick={openSelection} id="picker">
+					<Picker
+						onClick={(e) => {
+							e.preventDefault();
+							openSelection();
+						}}
+						id="picker"
+					>
 						välj tävlingsgren
 						<motion.span
 							variants={iconVariant}
