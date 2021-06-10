@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 function Input({ id, label, name, action, data }) {
 	const [active, setActive] = useState(data ? true : false);
-	const [error, setError] = useState('');
+	const [error] = useState('');
 
 	return (
 		<InputWrapper className={`${active ? 'active' : ''}`}>
