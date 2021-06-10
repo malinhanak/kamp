@@ -28,15 +28,16 @@ service cloud.firestore {
 
     match /{document=**} {
       allow read: if false;
-      allow write: if isAuthenticated();
+      allow write: if false;
     }
     
     match /users {
       allow read: if true;
+      allow create: if isAuthenticated();
   	}
     
     match /users/{uid} {
-      allow write: if isAuthenticated() && request.auth.uid == resource.id;
+  		allow read, write: if isAuthenticated() && request.auth.uid == uid;
   	}
 
     match /games {

@@ -7,8 +7,7 @@ import { Menu } from 'react-feather';
 
 const Base = styled(motion.div)`
 	position: fixed;
-	top: 1.5rem;
-	left: 1.5rem;
+	inset: 1.5rem auto auto 1.5rem;
 	z-index: 100;
 	min-width: 40px;
 	min-height: 40px;

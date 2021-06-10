@@ -4,7 +4,7 @@ import 'firebase/auth';
 
 const config = {
 	firebase: {
-		apiKey: process.env.REACT_APP_API_KEY,
+		apiKey: 'AIzaSyCJ68Fd6NZoRWw52wgLI1x6lFJ6GAxbM7M',
 		authDomain: 'kamp-b928e.firebaseapp.com',
 		projectId: 'kamp-b928e',
 		storageBucket: 'kamp-b928e.appspot.com',
@@ -13,8 +13,6 @@ const config = {
 		measurementId: 'G-5N5XXCQ8FT',
 	},
 	reduxFirebase: {
-		userProfile: 'users',
-		useFirestoreForProfile: true,
 		enableLogging: false,
 		logErrors: true,
 	},
