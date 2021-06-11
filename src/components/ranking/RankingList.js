@@ -10,7 +10,12 @@ import { List, ListItem } from './RankingStyle';
 export function RankingList({ isPointsHidden }) {
 	const { gameId } = useParams();
 	useFirestoreConnect([
-		{ collection: 'teams', where: [['gameId', '==', gameId]], storeAs: 'ranking' },
+		{
+			collection: 'games',
+			doc: gameId,
+			subcollections: [{ collection: 'teams' }],
+			storeAs: 'ranking',
+		},
 	]);
 
 	const ranking = useSelector((state) => state.firestore.ordered.ranking);
@@ -38,7 +43,7 @@ export function RankingList({ isPointsHidden }) {
 								{team.name}
 							</Typography>
 							<Typography as={Paragraph} fontColor="primary" align="right">
-								{isPointsHidden ? '????' : `${team.team_score} p`}
+								{isPointsHidden ? '****' : `${team.team_score} p`}
 							</Typography>
 						</ListItem>
 					))}

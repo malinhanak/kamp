@@ -10,10 +10,11 @@ import { db } from 'config/client';
 import { isLoaded, useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
 import ThreeDotsWave from 'components/ui-components/SmallLoader';
+import { useParams } from 'react-router';
 
 const PointsInput = styled.input`
 	${sharedCss}
-	width: 40%;
+	width: 75%;
 	padding: 0.8rem;
 	border-radius: 30px;
 	border: none;
@@ -41,7 +42,7 @@ const PointsContainer = styled.section`
 
 const PointsBtn = styled.button`
 	${sharedCss}
-	width: 40%;
+	width: 20%;
 	padding: 0.8rem;
 	border-radius: 0 16px 16px 0;
 	border: none;
@@ -57,14 +58,23 @@ function GameInput({ teamId, currentGame }) {
 	const { addToast } = useToasts();
 	const [points, setPoints] = useState('0');
 	const [isUpdating, setIsUpdating] = useState(false);
+	let { gameId } = useParams();
 
-	useFirestoreConnect([{ collection: 'team_points', doc: teamId, storeAs: 'currentTeamScore' }]);
-
-	const isButtonActive = points !== '0' && points !== '';
+	useFirestoreConnect([
+		{
+			collection: 'games',
+			doc: gameId,
+			subcollections: [{ collection: 'team_points', doc: teamId }],
+			storeAs: 'currentTeamScore',
+		},
+	]);
 
 	const currentTeamScore = useSelector((state) => state.firestore.ordered.currentTeamScore);
+	const isButtonActive = points !== '0' && points !== '';
 
 	if (!isLoaded(currentTeamScore)) return <ThreeDotsWave />;
+	console.log('__TEAM ID__', teamId, currentGame);
+	console.log('__CURRENT TEAM SCORE__', currentTeamScore);
 
 	const submitPoints = () => {
 		setIsUpdating(true);
@@ -75,13 +85,13 @@ function GameInput({ teamId, currentGame }) {
 			});
 		};
 
-		const currentPoints = currentTeamScore[0][currentGame.toLowerCase()];
+		const currentPoints = currentTeamScore[0][currentGame];
 		const calculatingNewTeamGamePoint = currentPoints + parseInt(points, 10);
 
-		const teamRef = db.collection('team_points').doc(teamId);
+		const teamRef = db.collection('games').doc(gameId).collection('team_points').doc(teamId);
 		return teamRef
 			.update({
-				[currentGame.toLowerCase()]: calculatingNewTeamGamePoint,
+				[currentGame]: calculatingNewTeamGamePoint,
 			})
 			.then(toaster)
 			.then(() => {

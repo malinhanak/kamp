@@ -29,13 +29,15 @@ export function Game() {
 			storeAs: 'game',
 		},
 		{
-			collection: 'gameInfo',
+			collection: 'games',
 			doc: gameId,
+			subcollections: [{ collection: 'info' }],
 			storeAs: 'info',
 		},
 		{
-			collection: 'teams',
-			where: [['gameId', '==', gameId]],
+			collection: 'games',
+			doc: gameId,
+			subcollections: [{ collection: 'teams' }],
 			storeAs: 'teams',
 		},
 	]);
@@ -95,7 +97,7 @@ export function Game() {
 				</Typography>
 			);
 
-		return htmr(info[0].info, { transform });
+		return htmr(info[0].about, { transform });
 	};
 
 	return (
