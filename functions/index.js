@@ -11,7 +11,7 @@ exports.writeToPointsFlow = functions.firestore
       const afData = after.data();
 
       /**
-       * Greate point flow string
+       * Create point flow string
        * @param {object} diff object.
        * @param {number} currentScore score number.
        * @param {string} name name of the came.
