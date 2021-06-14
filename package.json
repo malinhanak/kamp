@@ -47,6 +47,11 @@
 		"eject": "react-scripts eject",
 		"prepare": "husky install"
 	},
+	"jest": {
+		"modulePathIgnorePatterns": [
+			"./src/__tests__/firebase*"
+		]
+	},
 	"eslintConfig": {
 		"ignorePatterns": [
 			"functions"
