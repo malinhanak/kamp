@@ -97,7 +97,7 @@ export function GamePicker({ gameSelection, isPointsHidden, ownerId }) {
 				margin="0.7rem 0 0.7rem 0.7rem"
 				align="left"
 			>
-				{game}
+				{`${game.charAt(0).toUpperCase()}${game.slice(1)}`}
 			</Typography>
 		);
 	});

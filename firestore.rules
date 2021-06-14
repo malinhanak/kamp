@@ -9,8 +9,8 @@ service cloud.firestore {
       return get(/databases/$(database)/documents/games/$(gameId))
     }
     
-    function getTeamsData(teamId) {
-      return get(/databases/$(database)/documents/teams/$(teamId))
+    function getTeamsData(gameUID, teamUID) {
+      return get(/databases/$(database)/documents/games/$(gameUID)/teams/$(teamUID))
     }
 
     function isGameOwner() {
@@ -21,9 +21,13 @@ service cloud.firestore {
       return isAuthenticated() && request.auth.uid in resource.data.players
     }
 
-    function isRegisteredToGame(gameId) {
-      return isAuthenticated() && request.auth.uid in getGameData(gameId).data.players 
-      || isAuthenticated() && getGameData(gameId).data.ownerId == request.auth.uid;
+    function isRegisteredToGame(gameUID) {
+      return isAuthenticated() && request.auth.uid in getGameData(gameUID).data.players 
+      || isAuthenticated() && getGameData(gameUID).data.ownerId == request.auth.uid;
+    }
+
+    function isTeamLeader(gameUID, teamUID) {
+      return isAuthenticated() && getTeamsData(gameUID, teamUID).data.team_leader == request.auth.uid
     }
 
     match /{document=**} {
@@ -39,27 +43,32 @@ service cloud.firestore {
     match /users/{uid} {
   		allow read, write: if isAuthenticated() && request.auth.uid == uid;
   	}
+    
+    match /rules/{ruleId} {
+      allow read: if isAuthenticated();
+  	}
 
     match /games {
       allow read: if isAuthenticated();
       allow create: if request.auth != null;
   	}
 
-    match /games/{gameId} {
+    match /games/{gameUID} {
         allow read: if isGamePlayer() || isGameOwner();
-        allow update, delete: if request.auth != null && isGameOwner();
-  	}
-    
-    match /gameInfo/{gameId} {
-        allow read: if isRegisteredToGame(gameId);
-  	}
+        allow update, delete: if isGameOwner();
 
-    match /team_points/{teamId} {
-      allow update: if isAuthenticated() && getTeamsData(teamId).data.team_leader == request.auth.uid;
-  	}
-    
-    match /teams/{teamId} {
-      allow read: if isRegisteredToGame(resource.data.gameId);
+        match /teams/{teamUID} {
+          allow read: if isRegisteredToGame(gameUID);
+  	    }
+
+        match /info/{infoUID} {
+          allow read: if isRegisteredToGame(gameUID);
+  	    }
+
+        match /team_points/{teamUID} {
+          allow read: if isRegisteredToGame(gameUID);
+          allow update: if isTeamLeader(gameUID, teamUID);
+        }
   	}
   }
 }
