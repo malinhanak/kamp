@@ -22,6 +22,6 @@ jobs:
           echo Installing dependencies
           yarn
           echo Running tests...
-          yarn test
+          yarn test:nowatch
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}

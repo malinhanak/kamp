@@ -1,7 +1,7 @@
 name: Deploy to Production
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   running-tests:
@@ -19,4 +19,4 @@ jobs:
           echo Installing dependencies
           yarn
           echo Running tests...
-          yarn test
+          yarn test:nowatch
