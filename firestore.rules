@@ -1,9 +1,74 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read: if request.auth != null;
-      allow write: if request.auth != null;
+    function isAuthenticated() {
+      return request.auth != null
     }
+    
+    function getGameData(gameId) {
+      return get(/databases/$(database)/documents/games/$(gameId))
+    }
+    
+    function getTeamsData(gameUID, teamUID) {
+      return get(/databases/$(database)/documents/games/$(gameUID)/teams/$(teamUID))
+    }
+
+    function isGameOwner() {
+      return isAuthenticated() && request.auth.uid == resource.data.ownerId
+    }
+
+    function isGamePlayer() {
+      return isAuthenticated() && request.auth.uid in resource.data.players
+    }
+
+    function isRegisteredToGame(gameUID) {
+      return isAuthenticated() && request.auth.uid in getGameData(gameUID).data.players 
+      || isAuthenticated() && getGameData(gameUID).data.ownerId == request.auth.uid;
+    }
+
+    function isTeamLeader(gameUID, teamUID) {
+      return isAuthenticated() && getTeamsData(gameUID, teamUID).data.team_leader == request.auth.uid
+    }
+
+    match /{document=**} {
+      allow read: if false;
+      allow write: if false;
+    }
+    
+    match /users {
+      allow read: if true;
+      allow create: if isAuthenticated();
+  	}
+    
+    match /users/{uid} {
+  		allow read, write: if isAuthenticated() && request.auth.uid == uid;
+  	}
+    
+    match /rules/{ruleId} {
+      allow read: if isAuthenticated();
+  	}
+
+    match /games {
+      allow read: if isAuthenticated();
+      allow create: if request.auth != null;
+  	}
+
+    match /games/{gameUID} {
+        allow read: if isGamePlayer() || isGameOwner();
+        allow update, delete: if isGameOwner();
+
+        match /teams/{teamUID} {
+          allow read: if isRegisteredToGame(gameUID);
+  	    }
+
+        match /info/{infoUID} {
+          allow read: if isRegisteredToGame(gameUID);
+  	    }
+
+        match /team_points/{teamUID} {
+          allow read: if isRegisteredToGame(gameUID);
+          allow update: if isTeamLeader(gameUID, teamUID);
+        }
+  	}
   }
 }

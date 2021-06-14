@@ -20,7 +20,8 @@ export const game = [
 export const gameInfo = [
 	{
 		rules: 'regelbok',
-		info: '<p>informations pärm</p>',
+		about: '<p>informations pärm</p>',
+		games: ['dragkamp', 'krocket'],
 	},
 ];
 

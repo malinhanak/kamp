@@ -25,16 +25,24 @@ function GameModal() {
 	const { isModalOpen, closeModal } = useContext(uiControlContext);
 	const dispatch = useDispatch();
 	useFirestoreConnect([
-		{ collection: 'rules', doc: title.toLowerCase() },
 		{
-			collection: 'teams',
-			where: [
-				['gameId', '==', gameId],
-				['team_leader', '==', uid],
-			],
+			collection: 'games',
+			doc: gameId,
+			subcollections: [{ collection: 'info' }],
+			storeAs: 'rules',
+		},
+		{
+			collection: 'games',
+			doc: gameId,
+			subcollections: [{ collection: 'teams', where: [['team_leader', '==', uid]] }],
 			storeAs: 'team',
 		},
-		{ collection: 'team_points', storeAs: 'teamPoints' },
+		{
+			collection: 'games',
+			doc: gameId,
+			subcollections: [{ collection: 'team_points' }],
+			storeAs: 'teamPoints',
+		},
 	]);
 
 	const unSetSelectedGame = () => {
@@ -53,6 +61,8 @@ function GameModal() {
 
 	const isTeamLeader = team[0].team_leader === uid;
 
+	console.log('rules', rules);
+
 	const renderRules = () => {
 		if (!isLoaded(rules)) return <ThreeDotsWave />;
 		if (isEmpty(rules))
@@ -63,10 +73,10 @@ function GameModal() {
 				</Message>
 			);
 
-		return <RuleContainer>{htmr(rules[0].rules, { transform })}</RuleContainer>;
+		return (
+			<RuleContainer>{htmr(rules[0].rules[title.toLowerCase()], { transform })}</RuleContainer>
+		);
 	};
-
-	console.log(rules);
 
 	return (
 		isModalOpen && (

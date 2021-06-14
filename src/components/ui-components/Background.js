@@ -12,8 +12,7 @@ const Container = styled.section`
 	height: ${(props) => props.bgHeight || '60vh'};
 	width: 100vw;
 	position: fixed;
-	top: 0;
-	left: 0;
+	inset: 0 auto auto 0;
 	z-index: 1;
 
 	pointer-events: none;
@@ -29,8 +28,7 @@ const Wrapper = styled.div`
 	max-height: 400px;
 
 	position: fixed;
-	top: 0;
-	right: 0;
+	inset: 0 0 auto auto;
 	z-index: 12;
 
 	pointer-events: none;
@@ -41,8 +39,7 @@ const BG = styled(motion.img)`
 	height: auto;
 
 	position: fixed;
-	top: 0;
-	right: 0;
+	inset: 0 0 auto auto;
 	z-index: 1;
 
 	pointer-events: none;
@@ -52,8 +49,7 @@ const ContainerLayout = styled.section`
 	height: ${(props) => props.bgHeight || '60vh'};
 	width: 100vw;
 	position: fixed;
-	top: 0;
-	left: 0;
+	inset: 0 auto auto 0;
 	z-index: 1;
 
 	pointer-events: none;
@@ -65,8 +61,7 @@ const NoAnimateBG = styled.img`
 	height: auto;
 
 	position: fixed;
-	top: 0;
-	left: 0;
+	inset: 0 auto auto 0;
 	z-index: 1;
 
 	pointer-events: none;

@@ -1,8 +1,11 @@
 import { GoogleIcon } from 'assets';
+import { db } from 'config/client';
+import { push } from 'connected-react-router';
 import { motion } from 'framer-motion';
+import { useDispatch } from 'react-redux';
+import { UserIsNotAuthenticated } from '../utils/HOC/ProtectedRoute';
 import { useFirebase } from 'react-redux-firebase';
 import { withRouter } from 'react-router-dom';
-import { UserIsNotAuthenticated } from '../utils/HOC/ProtectedRoute';
 import LoginWithGoogle from './ui-components/Button';
 import { PageTitle } from './ui-components/PageTitle';
 import { HeadingSix, Typography } from './ui-components/Typography';
@@ -15,9 +18,26 @@ export const loginVariants = {
 
 export function LoginPage() {
 	const firebase = useFirebase();
+	const dispatch = useDispatch();
 
 	function loginWithGoogle() {
-		firebase.login({ provider: 'google', type: 'popup' });
+		firebase.login({ provider: 'google', type: 'popup' }).then(({ additionalUserInfo, user }) => {
+			console.log(user);
+			if (additionalUserInfo.isNewUser) {
+				const usersRef = db.collection('users');
+				return usersRef
+					.doc(user.uid)
+					.set({
+						name: user.displayName,
+						email: user.email,
+						photoUrl: user.photoURL,
+					})
+					.then(dispatch(push('new-player')))
+					.catch((error) => console.error('Error adding document: ', error));
+			} else {
+				dispatch(push('games'));
+			}
+		});
 	}
 
 	return (

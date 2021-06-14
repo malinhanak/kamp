@@ -13,8 +13,7 @@ export const Style = styled(motion.section)`
 		rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
 		rgba(0, 0, 0, 0.09) 0px -3px 5px;
 	position: fixed;
-	bottom: 0;
-	left: 0;
+	inset: auto auto 0 0;
 	z-index: 1000;
 	display: flex;
 	flex-direction: column;

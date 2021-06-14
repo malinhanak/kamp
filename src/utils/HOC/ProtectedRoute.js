@@ -33,9 +33,3 @@ export const UserIsNotAuthenticated = connectedRouterRedirect({
 		dispatch({ type: 'UNAUTHED_REDIRECT' });
 	},
 });
-// const timestamp = state.firebase.auth.createdAt;
-// const newUserTime = add(new Date(timestamp), { hours: 1 });
-// const hasPastNewUserTimePassed = new Date() <= newUserTime;
-// if (hasPastNewUserTimePassed) {
-// 	return locationHelper.getRedirectQueryParam(ownProps) || '/new-player';
-// }

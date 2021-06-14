@@ -49,9 +49,12 @@ export function Games() {
 
 	if (isEmpty(games)) {
 		return (
-			<Message title="Woopsie!">
-				Det finns inga spel i katalogen än! Din spelledare jobbar troligen på det!
-			</Message>
+			<>
+				<PageTitle title="Spelkatalog" />
+				<Message title="Woopsie!">
+					Det finns inga spel i katalogen än! Din spelledare jobbar troligen på det!
+				</Message>
+			</>
 		);
 	}
 

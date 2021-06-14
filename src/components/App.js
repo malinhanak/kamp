@@ -10,6 +10,7 @@ import Games from 'components/game/GamesList';
 import Start from './Start';
 import { About } from './About';
 import Game from 'components/game/Game';
+import NewPlayer from './NewPlayer';
 
 function App() {
 	const location = useLocation();
@@ -22,7 +23,7 @@ function App() {
 			<MenuIcon data-testid="drawer-opener" />
 			<AnimatePresence exitBeforeEnter>
 				<Switch location={location} key={location.key}>
-					<Route path={['/login', '/games', '/game', '/about']}>
+					<Route path={['/login', '/games', '/game', '/about', '/new-player']}>
 						<Layout>
 							<LayoutBackground viewBox="0 0 700 812" />
 							<ContentWrapper>
@@ -31,11 +32,7 @@ function App() {
 									<Route exact path="/login" component={LoginPage} />
 									<Route exact path="/games" component={Games} />
 									<Route exact path="/game/:gameId" component={Game} />
-									<Route
-										exact
-										path="/game/:gameId/:selectedGame"
-										render={() => 'valt spel regler'}
-									/>
+									<Route exact path="/new-player" component={NewPlayer} />
 									<Route path="*">Can't find path</Route>
 								</Switch>
 							</ContentWrapper>

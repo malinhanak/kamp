@@ -27,7 +27,7 @@ export function GameOwnerSettings({ isPointsHidden }) {
 	return (
 		<>
 			<Typography as={HeadingSix} margin="0 0 2rem 0">
-				Inställningar
+				Admin Inställningar
 			</Typography>
 			<SettingsRow>
 				<Typography as={Paragraph} align="left">
