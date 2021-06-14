@@ -48,8 +48,8 @@
 		"prepare": "husky install"
 	},
 	"jest": {
-		"modulePathIgnorePatterns": [
-			"./src/__tests__/firebase*"
+		"watchPathIgnorePatterns": [
+			".*/__test__/firebase*.test.js"
 		]
 	},
 	"eslintConfig": {
